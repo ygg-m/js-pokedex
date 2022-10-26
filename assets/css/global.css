@@ -40,9 +40,63 @@ nav button {
   height: 10.2rem;
   padding: 1rem;
   border-radius: 0.5rem;
-  background-color: rgb(50, 208, 97);
   text-transform: capitalize;
   overflow: hidden;
+}
+
+.grass {
+  background-color: rgb(120, 200, 80);
+}
+.fire {
+  background-color: rgb(240, 128, 48);
+}
+.water {
+  background-color: rgb(102, 143, 240);
+}
+.normal {
+  background-color: rgb(168, 168, 120);
+}
+.bug {
+  background-color: rgb(168, 184, 32);
+}
+.fairy {
+  background-color: rgb(222, 165, 222);
+}
+.steel {
+  background-color: rgb(184, 184, 208);
+}
+.dark {
+  background-color: rgb(112, 88, 72);
+}
+.dragon {
+  background-color: rgb(112, 56, 248);
+}
+.ghost {
+  background-color: rgb(112, 88, 152);
+}
+.rock {
+  background-color: rgb(184, 160, 56);
+}
+.psychic {
+  background-color: rgb(248, 88, 136);
+}
+.flying {
+  background-color: rgb(168, 144, 240);
+}
+.ground {
+  background-color: rgb(224, 192, 104);
+}
+.poison {
+  background-color: rgb(160, 64, 160);
+}
+.fighting {
+  background-color: rgb(192, 48, 40);
+}
+.ice {
+  background-color: rgb(152, 216, 216);
+}
+.electric {
+  background-color: rgb(248, 208, 48);
 }
 
 .pokemon .name {
@@ -65,7 +119,6 @@ nav button {
   width: fit-content;
   padding: 0.2rem 0.4rem;
   color: rgb(0, 0, 0, 0.7);
-  background-color: rgb(255, 255, 255, 0.3);
 }
 
 .pokemon .number {
@@ -86,4 +139,27 @@ nav button {
 .pokemon:hover .image {
   transition: 200ms;
   opacity: 1;
+}
+
+.pagination {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+.pagination button {
+  cursor: pointer;
+  border-radius: 0.3rem;
+  background-color: transparent;
+  border: none;
+  padding: 0.5rem 1rem;
+  outline: 1px solid rgb(102, 143, 240);
+  color: rgb(102, 143, 240);
+}
+
+.pagination button:hover {
+  background-color: rgb(102, 143, 240);
+  color: rgb(230, 230, 230);
 }
