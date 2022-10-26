@@ -1,0 +1,144 @@
+@use './_variables' as v
+
+*
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+  font-family: "Poppins", sans-serif
+
+img 
+  object-fit: cover
+  width: 100%
+
+nav 
+  display: flex
+  justify-content: space-between
+  padding: 1rem
+  width: 100%
+
+    button 
+    border-radius: 0.3rem
+    background-color: transparent
+    border: none
+    padding: 0.5rem 1rem
+    outline: solid 1px #ccc
+    color: #777
+
+// pokemon card list
+.pokemon-list 
+    padding: 0.5rem
+    width: 100%
+    gap: 0.5rem
+    display: grid
+    grid-template-columns: 1fr 1fr
+
+    // pokemon card
+    .pokemon 
+        z-index: 1
+        position: relative
+        height: 10.2rem
+        padding: 1rem
+        border-radius: 0.5rem
+        text-transform: capitalize
+        overflow: hidden
+
+        &:hover
+            .image 
+                transition: 200ms
+                opacity: 1
+
+        .name 
+            font-size: 1.1rem
+            color: rgb(255, 255, 255, 0.9)
+            font-weight: bold
+            padding-bottom: 0.5rem
+            text-shadow: 0 2px 2px rgb(0, 0, 0, 0.3)
+
+        .types 
+            display: flex
+            flex-direction: column
+            gap: 0.5rem
+
+            p 
+                display: flex
+                align-items: center
+                justify-content: center
+                border-radius: 0.3rem
+                width: fit-content
+                padding: 0.2rem 0.4rem
+                color: rgb(0, 0, 0, 0.7)
+
+
+        .number 
+            color: rgb(255, 255, 255, 0.65)
+            text-align: right
+
+
+        .image 
+            z-index: -1
+            position: absolute
+            right: 0.5rem
+            bottom: 0.5rem
+            max-width: 50%
+            opacity: 0.6
+            transition: 1000ms
+
+
+// pokémon types color
+.grass 
+  background-color: v.$grass
+.fire 
+  background-color: v.$fire
+.water 
+  background-color: v.$water
+.normal 
+  background-color: v.$normal
+.bug 
+  background-color: v.$bug
+.fairy 
+  background-color: v.$fairy
+.steel 
+  background-color: v.$steel
+.dark 
+  background-color: v.$dark
+.dragon 
+  background-color: v.$dragon
+.ghost 
+  background-color: v.$ghost
+.rock 
+  background-color: v.$rock
+.psychic 
+  background-color: v.$psychic
+.flying 
+  background-color: v.$flying
+.ground 
+  background-color: v.$ground
+.poison 
+  background-color: v.$poison
+.fighting 
+  background-color: v.$fighting
+.ice 
+  background-color: v.$ice
+.electric 
+  background-color: v.$electric
+
+// pagination contanier
+.pagination 
+  width: 100%
+  display: flex
+  align-items: center
+  justify-content: center
+  margin: 1rem 0
+
+    button 
+        cursor: pointer
+        border-radius: 0.3rem
+        background-color: transparent
+        border: none
+        padding: 0.5rem 1rem
+        outline: 1px solid rgb(102, 143, 240)
+        color: rgb(102, 143, 240)
+
+        &:hover
+            background-color: rgb(102, 143, 240)
+            color: rgb(230, 230, 230)

@@ -3,7 +3,7 @@ const pokemonList = document.getElementById("pokemon-list");
 const BtnLoadMore = document.getElementById("btn-load-more");
 
 // api variables
-const maxCardLoad = 15;
+const maxCardLoad = 151;
 const limit = 10;
 let offset = 0;
 
