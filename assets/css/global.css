@@ -28,7 +28,7 @@ nav button {
 
 .pokemon-list {
   padding: 0.5rem;
-  width: 100vw;
+  width: 100%;
   gap: 0.5rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -76,11 +76,11 @@ nav button {
   right: 0.5rem;
   bottom: 0.5rem;
   max-width: 50%;
-  opacity: 0.7;
-  transition: 200ms;
+  opacity: 0.6;
+  transition: 1000ms;
 }
 
 .pokemon:hover .image {
-  transition: 1000ms;
+  transition: 200ms;
   opacity: 1;
 }
