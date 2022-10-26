@@ -12,9 +12,9 @@ img {
 
 nav {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   padding: 1rem;
-  width: 100vw;
+  width: 100%;
 }
 
 nav button {
