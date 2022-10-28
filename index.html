@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- css -->
     <link rel="stylesheet" href="assets/styles/index.css" />
+    <link rel="stylesheet" href="assets/styles/navbar.css" />
+    <link rel="stylesheet" href="assets/styles/poke-list.css" />
+    <link rel="stylesheet" href="assets/styles/modal.css" />
     <!-- google font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -19,8 +22,19 @@
   <body>
     <!-- navbar -->
     <nav>
-      <h1>Pokédex</h1>
-      <button>menu</button>
+      <div class="title">
+        <h1>
+          <img src="./assets/img/sprite-pokeball.png" alt="Pokéball Icon" />
+          Pokédex
+        </h1>
+      </div>
+      <ul>
+        <li><a href="https://github.com/ygg-m/pokedex">GitHub</a></li>
+        <li>About</li>
+      </ul>
+      <button class="btn-menu">
+        <object data="./assets/img/menu.svg"></object>
+      </button>
     </nav>
 
     <!-- pokemon list parent -->
