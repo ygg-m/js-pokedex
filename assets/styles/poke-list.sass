@@ -1,0 +1,136 @@
+@use './_variables.sass' as v
+    
+// pokemon card list
+.pokemon-list 
+    padding: 0.5rem
+    width: 100%
+    gap: 0.5rem
+    display: grid
+    grid-template-columns: 1fr 1fr
+
+    // pokemon card
+    .pokemon 
+        z-index: 1
+        position: relative
+        height: 10.2rem
+        padding: 1rem
+        border-radius: 0.5rem
+        text-transform: capitalize
+        overflow: hidden
+
+        $opacity: .3
+        
+        
+        &.grass 
+            background-color: rgba(v.$grass, $opacity)
+            &:hover
+                $opacity: 1
+        &.fire 
+            background-color: rgba(v.$fire, $opacity)
+            &:hover
+                $opacity: 1
+        &.water 
+            background-color: rgba(v.$water, $opacity)
+            &:hover
+                $opacity: 1
+        &.normal 
+            background-color: rgba(v.$normal, $opacity)
+            &:hover
+                $opacity: 1
+        &.bug 
+            background-color: rgba(v.$bug, $opacity)
+            &:hover
+                $opacity: 1
+        &.fairy 
+            background-color: rgba(v.$fairy, $opacity)
+            &:hover
+                $opacity: 1
+        &.steel 
+            background-color: rgba(v.$steel, $opacity)
+            &:hover
+                $opacity: 1
+        &.dark 
+            background-color: rgba(v.$dark, $opacity)
+            &:hover
+                $opacity: 1
+        &.dragon 
+            background-color: rgba(v.$dragon, $opacity)
+            &:hover
+                $opacity: 1
+        &.ghost 
+            background-color: rgba(v.$ghost, $opacity)
+            &:hover
+                $opacity: 1
+        &.rock 
+            background-color: rgba(v.$rock, $opacity)
+            &:hover
+                $opacity: 1
+        &.psychic 
+            background-color: rgba(v.$psychic, $opacity)
+            &:hover
+                $opacity: 1
+        &.flying 
+            background-color: rgba(v.$flying, $opacity)
+            &:hover
+                $opacity: 1
+        &.ground 
+            background-color: rgba(v.$ground, $opacity)
+            &:hover
+                $opacity: 1
+        &.poison 
+            background-color: rgba(v.$poison, $opacity)
+            &:hover
+                $opacity: 1
+        &.fighting 
+            background-color: rgba(v.$fighting, $opacity)
+            &:hover
+                $opacity: 1
+        &.ice 
+            background-color: rgba(v.$ice, $opacity)
+            &:hover
+                $opacity: 1
+        &.electric 
+            background-color: rgba(v.$electric, $opacity)
+            &:hover
+                $opacity: 1
+
+        &:hover
+            .image 
+                transition: 200ms
+                opacity: 1
+
+        .name 
+            font-size: 1.1rem
+            color: rgb(255, 255, 255, 0.9)
+            font-weight: bold
+            padding-bottom: 0.5rem
+            text-shadow: 0 2px 2px rgb(0, 0, 0, 0.3)
+
+        .types 
+            display: flex
+            flex-direction: column
+            gap: 0.5rem
+
+            p 
+                display: flex
+                align-items: center
+                justify-content: center
+                border-radius: 0.3rem
+                width: fit-content
+                padding: 0.2rem 0.4rem
+                color: rgb(0, 0, 0, 0.7)
+
+
+        .number 
+            color: rgb(255, 255, 255, 0.65)
+            text-align: right
+
+
+        .image 
+            z-index: -1
+            position: absolute
+            right: 0.5rem
+            bottom: 0.5rem
+            max-width: 50%
+            opacity: 0.6
+            transition: 1000ms

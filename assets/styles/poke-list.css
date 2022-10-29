@@ -1,0 +1,110 @@
+.pokemon-list {
+  padding: 0.5rem;
+  width: 100%;
+  gap: 0.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.pokemon-list .pokemon {
+  z-index: 1;
+  position: relative;
+  height: 10.2rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  text-transform: capitalize;
+  overflow: hidden;
+}
+.pokemon-list .pokemon.grass {
+  background-color: rgba(86, 169, 44, 0.3);
+}
+.pokemon-list .pokemon.fire {
+  background-color: #d14b22;
+}
+.pokemon-list .pokemon.water {
+  background-color: #668ff0;
+}
+.pokemon-list .pokemon.normal {
+  background-color: #a8a878;
+}
+.pokemon-list .pokemon.bug {
+  background-color: #9fae1d;
+}
+.pokemon-list .pokemon.fairy {
+  background-color: #df82df;
+}
+.pokemon-list .pokemon.steel {
+  background-color: #818198;
+}
+.pokemon-list .pokemon.dark {
+  background-color: #705848;
+}
+.pokemon-list .pokemon.dragon {
+  background-color: #7038f8;
+}
+.pokemon-list .pokemon.ghost {
+  background-color: #705898;
+}
+.pokemon-list .pokemon.rock {
+  background-color: #a68e27;
+}
+.pokemon-list .pokemon.psychic {
+  background-color: #f85888;
+}
+.pokemon-list .pokemon.flying {
+  background-color: #a890f0;
+}
+.pokemon-list .pokemon.ground {
+  background-color: #bd9937;
+}
+.pokemon-list .pokemon.poison {
+  background-color: #a040a0;
+}
+.pokemon-list .pokemon.fighting {
+  background-color: #c03028;
+}
+.pokemon-list .pokemon.ice {
+  background-color: #98d8d8;
+}
+.pokemon-list .pokemon.electric {
+  background-color: #d8ad00;
+}
+.pokemon-list .pokemon:hover .image {
+  transition: 200ms;
+  opacity: 1;
+}
+.pokemon-list .pokemon .name {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: bold;
+  padding-bottom: 0.5rem;
+  text-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+}
+.pokemon-list .pokemon .types {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.pokemon-list .pokemon .types p {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.3rem;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 0.2rem 0.4rem;
+  color: rgba(0, 0, 0, 0.7);
+}
+.pokemon-list .pokemon .number {
+  color: rgba(255, 255, 255, 0.65);
+  text-align: right;
+}
+.pokemon-list .pokemon .image {
+  z-index: -1;
+  position: absolute;
+  right: 0.5rem;
+  bottom: 0.5rem;
+  max-width: 50%;
+  opacity: 0.6;
+  transition: 1000ms;
+}/*# sourceMappingURL=poke-list.css.map */

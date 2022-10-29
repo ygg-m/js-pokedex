@@ -1,0 +1,35 @@
+@use './_variables.sass' as v
+@use './_mixin.sass' as m
+
+nav 
+    display: flex
+    justify-content: space-between
+    padding: 1rem
+    width: 100%
+    border-bottom: solid 1px #eee
+
+    .title
+        @include m.flex-center
+        gap: .5rem
+
+        img
+            width: 1.5rem
+            height: 1.5rem
+
+        h1
+            color: v.$red
+
+    .options
+        list-style: none
+        @include m.flex-center
+        display: none
+        gap: 1rem
+        
+
+    button 
+        @include m.flex-center
+        border-radius: 0.3rem
+        background-color: transparent
+        border: none
+        padding: 0.5rem
+        color: #777
