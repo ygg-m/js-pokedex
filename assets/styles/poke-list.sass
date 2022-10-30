@@ -1,4 +1,5 @@
 @use './_variables.sass' as v
+@use './_mixin.sass' as m
     
 // pokemon card list
 .pokemon-list 
@@ -11,115 +12,373 @@
     // pokemon card
     .pokemon 
         z-index: 1
-        position: relative
+        display: grid
+        grid-template-columns: 1fr 1fr
         height: 10.2rem
         padding: 1rem
         border-radius: 0.5rem
         text-transform: capitalize
         overflow: hidden
+        box-shadow: 0 0 0 rgb(0, 0, 0, 0)
+        outline: solid 1px rgb(0, 0, 0, 0)
+        transition: 1000ms
 
-        $opacity: .3
-        
-        
-        &.grass 
-            background-color: rgba(v.$grass, $opacity)
-            &:hover
-                $opacity: 1
-        &.fire 
-            background-color: rgba(v.$fire, $opacity)
-            &:hover
-                $opacity: 1
-        &.water 
-            background-color: rgba(v.$water, $opacity)
-            &:hover
-                $opacity: 1
-        &.normal 
-            background-color: rgba(v.$normal, $opacity)
-            &:hover
-                $opacity: 1
-        &.bug 
-            background-color: rgba(v.$bug, $opacity)
-            &:hover
-                $opacity: 1
-        &.fairy 
-            background-color: rgba(v.$fairy, $opacity)
-            &:hover
-                $opacity: 1
-        &.steel 
-            background-color: rgba(v.$steel, $opacity)
-            &:hover
-                $opacity: 1
-        &.dark 
-            background-color: rgba(v.$dark, $opacity)
-            &:hover
-                $opacity: 1
-        &.dragon 
-            background-color: rgba(v.$dragon, $opacity)
-            &:hover
-                $opacity: 1
-        &.ghost 
-            background-color: rgba(v.$ghost, $opacity)
-            &:hover
-                $opacity: 1
-        &.rock 
-            background-color: rgba(v.$rock, $opacity)
-            &:hover
-                $opacity: 1
-        &.psychic 
-            background-color: rgba(v.$psychic, $opacity)
-            &:hover
-                $opacity: 1
-        &.flying 
-            background-color: rgba(v.$flying, $opacity)
-            &:hover
-                $opacity: 1
-        &.ground 
-            background-color: rgba(v.$ground, $opacity)
-            &:hover
-                $opacity: 1
-        &.poison 
-            background-color: rgba(v.$poison, $opacity)
-            &:hover
-                $opacity: 1
-        &.fighting 
-            background-color: rgba(v.$fighting, $opacity)
-            &:hover
-                $opacity: 1
-        &.ice 
-            background-color: rgba(v.$ice, $opacity)
-            &:hover
-                $opacity: 1
-        &.electric 
-            background-color: rgba(v.$electric, $opacity)
-            &:hover
-                $opacity: 1
 
         &:hover
-            .image 
-                transition: 200ms
-                opacity: 1
+            cursor: pointer
+            z-index: 5
+            transition: 50ms
+            transform: scale(1.03)
+            box-shadow: 0 .3rem .5rem rgb(0, 0, 0, .15)
 
-        .name 
-            font-size: 1.1rem
-            color: rgb(255, 255, 255, 0.9)
-            font-weight: bold
-            padding-bottom: 0.5rem
-            text-shadow: 0 2px 2px rgb(0, 0, 0, 0.3)
+            outline: solid 1px rgb(0, 0, 0, 1)
 
-        .types 
-            display: flex
-            flex-direction: column
-            gap: 0.5rem
+            .info
+                .types
+                    p
+                        &.grass
+                            transition: 50ms
+                            color: v.$grass-light
+                            background-color: v.$grass
+                        &.fire
+                            transition: 50ms
+                            color: v.$fire-light
+                            background-color: v.$fire
+                        &.water
+                            transition: 50ms
+                            color: v.$water-light
+                            background-color: v.$water
+                        &.normal
+                            transition: 50ms
+                            color: v.$normal-light
+                            background-color: v.$normal
+                        &.bug
+                            transition: 50ms
+                            color: v.$bug-light
+                            background-color: v.$bug
+                        &.fairy
+                            transition: 50ms
+                            color: v.$fairy-light
+                            background-color: v.$fairy
+                        &.steel
+                            transition: 50ms
+                            color: v.$steel-light
+                            background-color: v.$steel
+                        &.dark
+                            transition: 50ms
+                            color: v.$dark-light
+                            background-color: v.$dark
+                        &.dragon
+                            transition: 50ms
+                            color: v.$dragon-light
+                            background-color: v.$dragon
+                        &.ghost
+                            transition: 50ms
+                            color: v.$ghost-light
+                            background-color: v.$ghost
+                        &.rock
+                            transition: 50ms
+                            color: v.$rock-light
+                            background-color: v.$rock
+                        &.psychic
+                            transition: 50ms
+                            color: v.$psychic-light
+                            background-color: v.$psychic
+                        &.flying
+                            transition: 50ms
+                            color: v.$flying-light
+                            background-color: v.$flying
+                        &.ground
+                            transition: 50ms
+                            color: v.$ground-light
+                            background-color: v.$ground
+                        &.poison
+                            transition: 50ms
+                            color: v.$poison-light
+                            background-color: v.$poison
+                        &.fighting
+                            transition: 50ms
+                            color: v.$fighting-light
+                            background-color: v.$fighting
+                        &.ice
+                            transition: 50ms
+                            color: v.$ice-light
+                            background-color: v.$ice
+                        &.electric
+                            transition: 50ms
+                            color: v.$electric-light
+                            background-color: v.$electric
+        
+        &.grass 
+            outline: solid 1px v.$grass
+            background-color: v.$grass-light
+            transition: 1000ms
+            &:hover
+                transition: 50ms
+                outline: solid 1px v.$grass-dark
+            .number
+                color: v.$grass
+            .name
+                color: v.$grass-dark
+        &.fire 
+            outline: solid 1px v.$fire
+            background-color: v.$fire-light
+            transition: 1000ms
+            &:hover
+                transition: 50ms
+                outline: solid 1px v.$fire-dark
+            .number
+                color: v.$fire
+            .name
+                color: v.$fire-dark
+        &.water 
+            outline: solid 1px v.$water
+            background-color: v.$water-light
+            transition: 1000ms
+            &:hover
+                transition: 50ms
+                outline: solid 1px v.$water-dark
+            .number
+                color: v.$water
+            .name
+                color: v.$water-dark
+        &.normal 
+            outline: solid 1px v.$normal
+            background-color: v.$normal-light
+            transition: 1000ms
+            &:hover
+                transition: 50ms
+                outline: solid 1px v.$normal-dark
+            .number
+                color: v.$normal
+            .name
+                color: v.$normal-dark
+        &.bug 
+            outline: solid 1px v.$bug
+            background-color: v.$bug-light
+            transition: 1000ms
+            &:hover
+                transition: 50ms
+                outline: solid 1px v.$bug-dark
+            .number
+                color: v.$bug
+            .name
+                color: v.$bug-dark
+        &.fairy 
+            outline: solid 1px v.$fairy
+            background-color: v.$fairy-light
+            transition: 1000ms
+            &:hover
+                transition: 50ms
+                outline: solid 1px v.$fairy-dark
+            .number
+                color: v.$fairy
+            .name
+                color: v.$fairy-dark
+        &.steel 
+            outline: solid 1px v.$steel
+            background-color: v.$steel-light
+            transition: 1000ms
+            &:hover
+                transition: 50ms
+                outline: solid 1px v.$steel-dark
+            .number
+                color: v.$steel
+            .name
+                color: v.$steel-dark
+        &.dark 
+            outline: solid 1px v.$dark
+            background-color: v.$dark-light
+            transition: 1000ms
+            &:hover
+                transition: 50ms
+                outline: solid 1px v.$dark-dark
+            .number
+                color: v.$dark
+            .name
+                color: v.$dark-dark
+        &.dragon 
+            outline: solid 1px v.$dragon
+            background-color: v.$dragon-light
+            transition: 1000ms
+            &:hover
+                transition: 50ms
+                outline: solid 1px v.$dragon-dark
+            .number
+                color: v.$dragon
+            .name
+                color: v.$dragon-dark
+        &.ghost 
+            outline: solid 1px v.$ghost
+            background-color: v.$ghost-light
+            transition: 1000ms
+            &:hover
+                transition: 50ms
+                outline: solid 1px v.$ghost-dark
+            .number
+                color: v.$ghost
+            .name
+                color: v.$ghost-dark
+        &.rock 
+            outline: solid 1px v.$rock
+            background-color: v.$rock-light
+            transition: 1000ms
+            &:hover
+                transition: 50ms
+                outline: solid 1px v.$rock-dark
+            .number
+                color: v.$rock
+            .name
+                color: v.$rock-dark
+        &.psychic 
+            outline: solid 1px v.$psychic
+            background-color: v.$psychic-light
+            transition: 1000ms
+            &:hover
+                transition: 50ms
+                outline: solid 1px v.$psychic-dark
+            .number
+                color: v.$psychic
+            .name
+                color: v.$psychic-dark
+        &.flying 
+            outline: solid 1px v.$flying
+            background-color: v.$flying-light
+            transition: 1000ms
+            &:hover
+                transition: 50ms
+                outline: solid 1px v.$flying-dark
+            .number
+                color: v.$flying
+            .name
+                color: v.$flying-dark
+        &.ground 
+            outline: solid 1px v.$ground
+            background-color: v.$ground-light
+            transition: 1000ms
+            &:hover
+                transition: 50ms
+                outline: solid 1px v.$ground-dark
+            .number
+                color: v.$ground
+            .name
+                color: v.$ground-dark
+        &.poison 
+            outline: solid 1px v.$poison
+            background-color: v.$poison-light
+            transition: 1000ms
+            &:hover
+                transition: 50ms
+                outline: solid 1px v.$poison-dark
+            .number
+                color: v.$poison
+            .name
+                color: v.$poison-dark
+        &.fighting 
+            outline: solid 1px v.$fighting
+            background-color: v.$fighting-light
+            transition: 1000ms
+            &:hover
+                transition: 50ms
+                outline: solid 1px v.$fighting-dark
+            .number
+                color: v.$fighting
+            .name
+                color: v.$fighting-dark
+        &.ice 
+            outline: solid 1px v.$ice
+            background-color: v.$ice-light
+            transition: 1000ms
+            &:hover
+                transition: 50ms
+                outline: solid 1px v.$ice-dark
+            .number
+                color: v.$ice
+            .name
+                color: v.$ice-dark
+        &.electric 
+            outline: solid 1px v.$electric
+            background-color: v.$electric-light
+            transition: 1000ms
+            &:hover
+                transition: 50ms
+                outline: solid 1px v.$electric-dark
+            .number
+                color: v.$electric
+            .name
+                color: v.$electric-dark
 
-            p 
+        .info
+            .name 
+                font-size: 1.1rem
+                font-weight: bold
+
+            .types 
                 display: flex
-                align-items: center
-                justify-content: center
-                border-radius: 0.3rem
-                width: fit-content
-                padding: 0.2rem 0.4rem
-                color: rgb(0, 0, 0, 0.7)
+                flex-direction: column
+                gap: 0.5rem
 
-        .number 
-            color: rgb(255, 255, 255, 0.65)
-            text-align: right
+                p 
+                    transition: 1000ms
+                    @include m.flex-center
+                    border-radius: 0.3rem
+                    width: fit-content
+                    padding: 0.2rem 0.4rem
+
+                    &.grass
+                        outline: solid 1px v.$grass
+                        color: v.$grass
+                    &.fire
+                        outline: solid 1px v.$fire
+                        color: v.$fire
+                    &.water
+                        outline: solid 1px v.$water
+                        color: v.$water
+                    &.normal
+                        outline: solid 1px v.$normal
+                        color: v.$normal
+                    &.bug
+                        outline: solid 1px v.$bug
+                        color: v.$bug
+                    &.fairy
+                        outline: solid 1px v.$fairy
+                        color: v.$fairy
+                    &.steel
+                        outline: solid 1px v.$steel
+                        color: v.$steel
+                    &.dark
+                        outline: solid 1px v.$dark
+                        color: v.$dark
+                    &.dragon
+                        outline: solid 1px v.$dragon
+                        color: v.$dragon
+                    &.ghost
+                        outline: solid 1px v.$ghost
+                        color: v.$ghost
+                    &.rock
+                        outline: solid 1px v.$rock
+                        color: v.$rock
+                    &.psychic
+                        outline: solid 1px v.$psychic
+                        color: v.$psychic
+                    &.flying
+                        outline: solid 1px v.$flying
+                        color: v.$flying
+                    &.ground
+                        outline: solid 1px v.$ground
+                        color: v.$ground
+                    &.poison
+                        outline: solid 1px v.$poison
+                        color: v.$poison
+                    &.fighting
+                        outline: solid 1px v.$fighting
+                        color: v.$fighting
+                    &.ice
+                        outline: solid 1px v.$ice
+                        color: v.$ice
+                    &.electric
+                        outline: solid 1px v.$electric
+                        color: v.$electric
+
+            .number 
+                text-align: left

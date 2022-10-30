@@ -35,7 +35,11 @@ function loadPokeCards(offset, limit) {
               <div class="info">
                 <p class="number">#${id}</p>
                 <p class="name">${name}</p>
-                ${types.map((type) => `<p class=${type}>${type}</p>`).join("")}
+                <div class="types">
+                  ${types
+                    .map((type) => `<p class=${type}>${type}</p>`)
+                    .join("")}
+                </div>
               </div>
               <div class="image">
                 <img
