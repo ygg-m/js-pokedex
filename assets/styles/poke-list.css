@@ -387,8 +387,9 @@
   color: #A4850B;
 }
 .pokemon-list .pokemon .info .name {
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   font-weight: bold;
+  margin-bottom: 0.8rem;
 }
 .pokemon-list .pokemon .info .types {
   display: flex;
@@ -404,7 +405,7 @@
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
-  padding: 0.2rem 0.4rem;
+  padding: 0rem 0.5rem;
 }
 .pokemon-list .pokemon .info .types p.grass {
   outline: solid 1px #56A92C;
