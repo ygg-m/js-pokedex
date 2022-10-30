@@ -31,10 +31,10 @@ function loadPokeCards(offset, limit) {
         .map((pokemon) => {
           const { name, types, id, mainType } = pokemon;
           return `
-          <div class="pokemon ${mainType}">
-              <p class="number">#${id}</p>
-              <p class="name">${name}</p>
-              <div class="types">
+          <article class="pokemon ${mainType}">
+              <div class="info">
+                <p class="number">#${id}</p>
+                <p class="name">${name}</p>
                 ${types.map((type) => `<p class=${type}>${type}</p>`).join("")}
               </div>
               <div class="image">
@@ -43,7 +43,7 @@ function loadPokeCards(offset, limit) {
                   alt="${name}"
                 />
               </div>
-          </div>
+          </article>
               `;
         })
         .join("");
