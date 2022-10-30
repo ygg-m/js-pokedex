@@ -3,7 +3,7 @@
   width: 100%;
   gap: 0.5rem;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
 }
 .pokemon-list .pokemon {
   z-index: 1;
@@ -98,13 +98,4 @@
 .pokemon-list .pokemon .number {
   color: rgba(255, 255, 255, 0.65);
   text-align: right;
-}
-.pokemon-list .pokemon .image {
-  z-index: -1;
-  position: absolute;
-  right: 0.5rem;
-  bottom: 0.5rem;
-  max-width: 50%;
-  opacity: 0.6;
-  transition: 1000ms;
 }/*# sourceMappingURL=poke-list.css.map */

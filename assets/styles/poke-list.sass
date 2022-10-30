@@ -6,7 +6,7 @@
     width: 100%
     gap: 0.5rem
     display: grid
-    grid-template-columns: repeat(auto-fill, minmax(240px, 300px))
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr))
 
     // pokemon card
     .pokemon 
@@ -120,17 +120,6 @@
                 padding: 0.2rem 0.4rem
                 color: rgb(0, 0, 0, 0.7)
 
-
         .number 
             color: rgb(255, 255, 255, 0.65)
             text-align: right
-
-
-        .image 
-            z-index: -1
-            position: absolute
-            right: 0.5rem
-            bottom: 0.5rem
-            max-width: 50%
-            opacity: 0.6
-            transition: 1000ms
