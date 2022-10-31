@@ -11,11 +11,10 @@
     bottom: 0
     border-radius: 1rem 1rem 0 0
 
-    background-color: #666
+    background-color: #fff
 
     &.grass
         .header
-            color: #fff
         .showcase
             background-color: v.$grass
 
@@ -31,12 +30,18 @@
         background-color: rgb(0, 0, 0, .8)
 
     .header
+        z-index: 1
         position: absolute
         width: 100%
         padding: 1rem
         display: flex
         justify-content: space-between
+        color: #fff
         text-shadow: 0 2px .5rem rgb(0,0,0,.5)
+
+        span
+            font-weight: 400
+            opacity: .7
 
     .showcase
         position: relative

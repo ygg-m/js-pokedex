@@ -7,10 +7,7 @@
   left: 0;
   bottom: 0;
   border-radius: 1rem 1rem 0 0;
-  background-color: #666;
-}
-#modal.grass .header {
-  color: #fff;
+  background-color: #fff;
 }
 #modal.grass .showcase {
   background-color: #56A92C;
@@ -26,12 +23,18 @@
   background-color: rgba(0, 0, 0, 0.8);
 }
 #modal .header {
+  z-index: 1;
   position: absolute;
   width: 100%;
   padding: 1rem;
   display: flex;
   justify-content: space-between;
+  color: #fff;
   text-shadow: 0 2px 0.5rem rgba(0, 0, 0, 0.5);
+}
+#modal .header span {
+  font-weight: 400;
+  opacity: 0.7;
 }
 #modal .showcase {
   position: relative;
