@@ -11,7 +11,13 @@
     bottom: 0
     border-radius: 1rem 1rem 0 0
 
-    background-color: #fff
+    background-color: #666
+
+    &.grass
+        .header
+            color: #fff
+        .showcase
+            background-color: v.$grass
 
     &::before
         translate: 0 0 -10px
@@ -23,3 +29,36 @@
         bottom: 0
 
         background-color: rgb(0, 0, 0, .8)
+
+    .header
+        position: absolute
+        width: 100%
+        padding: 1rem
+        display: flex
+        justify-content: space-between
+
+    .showcase
+        border-radius: 1rem 1rem 0 0
+        display: flex
+        align-items: flex-end
+        width: 100%
+        height: calc(20rem + 5rem)
+        box-shadow: inset 0 0 8rem rgba(0, 0, 0, .7)
+
+        &::before
+            content: ''
+            position: absolute
+            top: 0
+            bottom: 0
+            left: 0
+            right: 0
+            width: 100%
+            height: 100%
+            background-image: url('../img/flat-pokeball.svg')
+            background-repeat: no-repeat
+            background-position: center
+
+        img
+            object-fit: contain
+            height: 85%
+            filter: drop-shadow(0 0 1rem rgb(255, 255, 255, .5))
