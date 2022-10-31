@@ -2,7 +2,9 @@
   z-index: 10;
   transform-style: preserve-3d;
   width: 100%;
-  height: 100%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
   position: fixed;
   left: 0;
   bottom: 0;
@@ -61,6 +63,17 @@
 #modal .content .main-info-container .weight-height .flex .content span {
   color: #999;
 }
+#modal .content .main-info-container .catch-rate .rate {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+#modal .content .main-info-container .catch-rate .rate .explanation {
+  flex-basis: 50%;
+  font-style: italic;
+  font-size: 0.7rem;
+  color: #999;
+}
 #modal .content .stats-container {
   padding: 1rem 2rem 2rem;
   display: grid;
@@ -74,6 +87,7 @@
 #modal .content .stats-container .content {
   flex-direction: row;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 1rem;
 }
 #modal .content .stats-container .content .stat {
@@ -129,6 +143,7 @@
   color: #9B51E0;
 }
 #modal .content .evolutions-container {
+  width: 100%;
   padding: 1rem 0 2rem;
   display: grid;
   justify-items: center;
@@ -138,7 +153,17 @@
 #modal .content .evolutions-container .title {
   color: #999;
 }
+#modal .content .evolutions-container .evolution-path {
+  width: 100%;
+  min-height: 210px;
+  overflow-x: scroll;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
 #modal .content .evolutions-container .evolution-path .evolution {
+  min-width: 110px;
   padding: 0.5rem;
   border-radius: 0.5rem;
   text-align: center;
@@ -173,6 +198,24 @@
 }
 #modal .content .evolutions-container .evolution-path .evolution.grass {
   outline: 1px solid #56A92C;
+}
+#modal .content .evolutions-container .evolution-path .path {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: #999;
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+}
+#modal .content .evolutions-container .evolution-path .path .img-container {
+  width: 24px;
+  height: 24px;
+}
+#modal .content .evolutions-container .evolution-path .path object {
+  opacity: 0.2;
+  rotate: 180deg;
 }
 #modal.grass .showcase {
   background-color: #56A92C;
