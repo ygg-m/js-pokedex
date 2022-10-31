@@ -6,6 +6,16 @@
   position: fixed;
   left: 0;
   bottom: 0;
+  overflow-y: scroll;
+}
+#modal .bg-dim {
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
 }
 #modal .content {
   padding-top: 0.5rem;
@@ -118,24 +128,59 @@
 #modal .content .stats-container .content .stat.spd .content {
   color: #9B51E0;
 }
+#modal .content .evolutions-container {
+  padding: 1rem 0 2rem;
+  display: grid;
+  justify-items: center;
+  gap: 0.5rem;
+  border-bottom: solid 1px #ccc;
+}
+#modal .content .evolutions-container .title {
+  color: #999;
+}
+#modal .content .evolutions-container .evolution-path .evolution {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  text-align: center;
+}
+#modal .content .evolutions-container .evolution-path .evolution .img-container {
+  position: relative;
+}
+#modal .content .evolutions-container .evolution-path .evolution .img-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 80%;
+  height: 80%;
+  background-image: url("../img/flat-pokeball.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+  opacity: 0.1;
+}
+#modal .content .evolutions-container .evolution-path .evolution .types {
+  font-size: 0.85rem;
+}
+#modal .content .evolutions-container .evolution-path .evolution .types .type.grass {
+  color: #56A92C;
+}
+#modal .content .evolutions-container .evolution-path .evolution .types .type.poison {
+  color: #a040a0;
+}
+#modal .content .evolutions-container .evolution-path .evolution.grass {
+  outline: 1px solid #56A92C;
+}
 #modal.grass .showcase {
   background-color: #56A92C;
   border-bottom: solid 1px #3E612C;
 }
-#modal::before {
-  translate: 0 0 -10px;
-  content: "";
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  background-color: rgba(0, 0, 0, 0.8);
-}
 #modal .header {
   z-index: 1;
   position: fixed;
-  overflow-y: scroll;
   width: 100%;
   padding: 1rem;
   display: flex;
