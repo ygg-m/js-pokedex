@@ -52,63 +52,70 @@
   color: #999;
 }
 #modal .content .stats-container {
-  padding: 1rem 2rem;
-  display: flex;
+  padding: 1rem 2rem 2rem;
+  display: grid;
+  justify-items: center;
+  gap: 0.5rem;
+  border-bottom: solid 1px #ccc;
+}
+#modal .content .stats-container .title {
+  color: #999;
+}
+#modal .content .stats-container .content {
+  flex-direction: row;
   justify-content: center;
   gap: 1rem;
 }
-#modal .content .stats-container .stat {
+#modal .content .stats-container .content .stat {
   width: 4rem;
-  display: grid;
-  align-items: center;
-  justify-items: center;
   border-radius: 0.3rem;
 }
-#modal .content .stats-container .stat .title {
+#modal .content .stats-container .content .stat .title {
   text-align: center;
   color: #fff;
   width: 100%;
   padding: 0.3rem 0;
 }
-#modal .content .stats-container .stat .content {
+#modal .content .stats-container .content .stat .content {
+  text-align: center;
   font-weight: bold;
   padding: 0.3rem 0;
   width: 100%;
 }
-#modal .content .stats-container .stat.hp {
+#modal .content .stats-container .content .stat.hp {
   outline: 1px solid #EB5757;
 }
-#modal .content .stats-container .stat.hp .title {
+#modal .content .stats-container .content .stat.hp .title {
   background-color: #EB5757;
 }
-#modal .content .stats-container .stat.hp .content {
+#modal .content .stats-container .content .stat.hp .content {
   color: #EB5757;
 }
-#modal .content .stats-container .stat.atk {
+#modal .content .stats-container .content .stat.atk {
   outline: 1px solid #F2994A;
 }
-#modal .content .stats-container .stat.atk .title {
+#modal .content .stats-container .content .stat.atk .title {
   background-color: #F2994A;
 }
-#modal .content .stats-container .stat.atk .content {
+#modal .content .stats-container .content .stat.atk .content {
   color: #F2994A;
 }
-#modal .content .stats-container .stat.def {
+#modal .content .stats-container .content .stat.def {
   outline: 1px solid #2D9CDB;
 }
-#modal .content .stats-container .stat.def .title {
+#modal .content .stats-container .content .stat.def .title {
   background-color: #2D9CDB;
 }
-#modal .content .stats-container .stat.def .content {
+#modal .content .stats-container .content .stat.def .content {
   color: #2D9CDB;
 }
-#modal .content .stats-container .stat.spd {
+#modal .content .stats-container .content .stat.spd {
   outline: 1px solid #9B51E0;
 }
-#modal .content .stats-container .stat.spd .title {
+#modal .content .stats-container .content .stat.spd .title {
   background-color: #9B51E0;
 }
-#modal .content .stats-container .stat.spd .content {
+#modal .content .stats-container .content .stat.spd .content {
   color: #9B51E0;
 }
 #modal.grass .showcase {

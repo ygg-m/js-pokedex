@@ -52,59 +52,67 @@
                             color: #999
 
         .stats-container
-            padding: 1rem 2rem
-            display: flex
-            justify-content: center
-            gap: 1rem
+            padding: 1rem 2rem 2rem
+            display: grid
+            justify-items: center
+            gap: .5rem
 
-            .stat
-                width: 4rem
-                display: grid
-                align-items: center
-                justify-items: center
-                border-radius: .3rem
+            border-bottom: solid 1px #ccc
 
-                .title
-                    text-align: center
-                    color: #fff
-                    width: 100%
-                    padding: .3rem 0
+            .title
+                color: #999
+
+            .content
+                flex-direction: row
+                justify-content: center
+                gap: 1rem
+
+                .stat
+                    width: 4rem
+                    border-radius: .3rem
+
+                    .title
+                        text-align: center
+                        color: #fff
+                        width: 100%
+                        padding: .3rem 0
+                        
+                    .content
+                        text-align: center
+                        font-weight: bold
+                        padding: .3rem 0
+                        width: 100%
+
+                    &.hp
+                        outline: 1px solid v.$hp
+                        .title
+                            background-color: v.$hp
+                        .content
+                            color: v.$hp
                     
-                .content
-                    font-weight: bold
-                    padding: .3rem 0
-                    width: 100%
+                    &.atk
+                        outline: 1px solid v.$atk
+                        .title
+                            background-color: v.$atk
+                        .content
+                            color: v.$atk
 
-                &.hp
-                    outline: 1px solid v.$hp
-                    .title
-                        background-color: v.$hp
-                    .content
-                        color: v.$hp
-                
-                &.atk
-                    outline: 1px solid v.$atk
-                    .title
-                        background-color: v.$atk
-                    .content
-                        color: v.$atk
+                    &.def
+                        outline: 1px solid v.$def
+                        .title
+                            background-color: v.$def
+                        .content
+                            color: v.$def
 
-                &.def
-                    outline: 1px solid v.$def
-                    .title
-                        background-color: v.$def
-                    .content
-                        color: v.$def
+                    &.spd
+                        outline: 1px solid v.$spd
+                        .title
+                            background-color: v.$spd
+                        .content
+                            color: v.$spd
 
-                &.spd
-                    outline: 1px solid v.$spd
-                    .title
-                        background-color: v.$spd
-                    .content
-                        color: v.$spd
 
-        
-           
+
     &.grass
         .header
         .showcase
