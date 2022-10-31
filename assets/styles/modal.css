@@ -2,12 +2,40 @@
   z-index: 10;
   transform-style: preserve-3d;
   width: 100%;
-  height: calc(100vh - 3rem);
+  height: 100%;
   position: fixed;
   left: 0;
   bottom: 0;
-  border-radius: 1rem 1rem 0 0;
+}
+#modal .content {
+  height: 100%;
   background-color: #fff;
+}
+#modal .content .main-info .title {
+  color: #999;
+}
+#modal .content .main-info .row {
+  border-bottom: solid 1px #ccc;
+  padding: 0.5rem 1rem;
+  display: grid;
+  grid-template-columns: 8rem 1fr;
+}
+#modal .content .main-info .row .list {
+  display: flex;
+  list-style: none;
+  gap: 1rem;
+}
+#modal .content .main-info .weight-height {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+#modal .content .main-info .weight-height .flex:first-child {
+  border-right: solid 1px #ccc;
+}
+#modal .content .main-info .weight-height .flex {
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
 }
 #modal.grass .showcase {
   background-color: #56A92C;
@@ -24,11 +52,13 @@
 }
 #modal .header {
   z-index: 1;
-  position: absolute;
+  position: fixed;
+  overflow-y: scroll;
   width: 100%;
   padding: 1rem;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   color: #fff;
   text-shadow: 0 2px 0.5rem rgba(0, 0, 0, 0.5);
 }
@@ -38,7 +68,6 @@
 }
 #modal .showcase {
   position: relative;
-  border-radius: 1rem 1rem 0 0;
   display: flex;
   align-items: flex-end;
   width: 100%;
