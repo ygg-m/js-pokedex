@@ -11,13 +11,19 @@
     bottom: 0
 
     .content
+        padding-top: .5rem
         height: 100%
+        display: flex
+        flex-direction: column
+        justify-content: flex-start
+        align-items: center
         background-color: #fff
 
-        .main-info
+        .main-info-container
             .title
                 color: #999
             .row
+                max-width: 35rem
                 border-bottom: solid 1px #ccc
                 padding: .5rem 1rem
                 display: grid
@@ -37,12 +43,73 @@
                     align-items: center
                     justify-content: center
 
-            
-    
+                    .content
+                        flex-direction: row
+                        gap: .5rem
+                        padding: 0
+
+                        span
+                            color: #999
+
+        .stats-container
+            padding: 1rem 2rem
+            display: flex
+            justify-content: center
+            gap: 1rem
+
+            .stat
+                width: 4rem
+                display: grid
+                align-items: center
+                justify-items: center
+                border-radius: .3rem
+
+                .title
+                    text-align: center
+                    color: #fff
+                    width: 100%
+                    padding: .3rem 0
+                    
+                .content
+                    font-weight: bold
+                    padding: .3rem 0
+                    width: 100%
+
+                &.hp
+                    outline: 1px solid v.$hp
+                    .title
+                        background-color: v.$hp
+                    .content
+                        color: v.$hp
+                
+                &.atk
+                    outline: 1px solid v.$atk
+                    .title
+                        background-color: v.$atk
+                    .content
+                        color: v.$atk
+
+                &.def
+                    outline: 1px solid v.$def
+                    .title
+                        background-color: v.$def
+                    .content
+                        color: v.$def
+
+                &.spd
+                    outline: 1px solid v.$spd
+                    .title
+                        background-color: v.$spd
+                    .content
+                        color: v.$spd
+
+        
+           
     &.grass
         .header
         .showcase
             background-color: v.$grass
+            border-bottom: solid 1px v.$grass-dark
 
     &::before
         translate: 0 0 -10px

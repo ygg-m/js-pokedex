@@ -8,37 +8,112 @@
   bottom: 0;
 }
 #modal .content {
+  padding-top: 0.5rem;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
   background-color: #fff;
 }
-#modal .content .main-info .title {
+#modal .content .main-info-container .title {
   color: #999;
 }
-#modal .content .main-info .row {
+#modal .content .main-info-container .row {
+  max-width: 35rem;
   border-bottom: solid 1px #ccc;
   padding: 0.5rem 1rem;
   display: grid;
   grid-template-columns: 8rem 1fr;
 }
-#modal .content .main-info .row .list {
+#modal .content .main-info-container .row .list {
   display: flex;
   list-style: none;
   gap: 1rem;
 }
-#modal .content .main-info .weight-height {
+#modal .content .main-info-container .weight-height {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
-#modal .content .main-info .weight-height .flex:first-child {
+#modal .content .main-info-container .weight-height .flex:first-child {
   border-right: solid 1px #ccc;
 }
-#modal .content .main-info .weight-height .flex {
+#modal .content .main-info-container .weight-height .flex {
   gap: 1rem;
   align-items: center;
   justify-content: center;
 }
+#modal .content .main-info-container .weight-height .flex .content {
+  flex-direction: row;
+  gap: 0.5rem;
+  padding: 0;
+}
+#modal .content .main-info-container .weight-height .flex .content span {
+  color: #999;
+}
+#modal .content .stats-container {
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+#modal .content .stats-container .stat {
+  width: 4rem;
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  border-radius: 0.3rem;
+}
+#modal .content .stats-container .stat .title {
+  text-align: center;
+  color: #fff;
+  width: 100%;
+  padding: 0.3rem 0;
+}
+#modal .content .stats-container .stat .content {
+  font-weight: bold;
+  padding: 0.3rem 0;
+  width: 100%;
+}
+#modal .content .stats-container .stat.hp {
+  outline: 1px solid #EB5757;
+}
+#modal .content .stats-container .stat.hp .title {
+  background-color: #EB5757;
+}
+#modal .content .stats-container .stat.hp .content {
+  color: #EB5757;
+}
+#modal .content .stats-container .stat.atk {
+  outline: 1px solid #F2994A;
+}
+#modal .content .stats-container .stat.atk .title {
+  background-color: #F2994A;
+}
+#modal .content .stats-container .stat.atk .content {
+  color: #F2994A;
+}
+#modal .content .stats-container .stat.def {
+  outline: 1px solid #2D9CDB;
+}
+#modal .content .stats-container .stat.def .title {
+  background-color: #2D9CDB;
+}
+#modal .content .stats-container .stat.def .content {
+  color: #2D9CDB;
+}
+#modal .content .stats-container .stat.spd {
+  outline: 1px solid #9B51E0;
+}
+#modal .content .stats-container .stat.spd .title {
+  background-color: #9B51E0;
+}
+#modal .content .stats-container .stat.spd .content {
+  color: #9B51E0;
+}
 #modal.grass .showcase {
   background-color: #56A92C;
+  border-bottom: solid 1px #3E612C;
 }
 #modal::before {
   translate: 0 0 -10px;
