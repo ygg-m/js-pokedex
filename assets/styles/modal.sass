@@ -10,6 +10,7 @@
     left: 0
     bottom: 0
     overflow-y: scroll
+    display: none
 
     .bg-dim
         z-index: -1
@@ -149,10 +150,9 @@
             .evolution-path
                 width: 100%
                 min-height: 210px
-                overflow-x: scroll
+                overflow-x: auto
                 @include m.flex-center
                 gap: 1rem
-                min
 
                 .evolution
                     min-width: 110px
@@ -205,7 +205,6 @@
 
 
     &.grass
-        .header
         .showcase
             background-color: v.$grass
             border-bottom: solid 1px v.$grass-dark
