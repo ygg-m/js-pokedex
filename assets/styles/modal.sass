@@ -14,7 +14,7 @@
     left: 0
     right: 0
     top: 0
-    overflow-y: scroll
+    overflow-y: scroll  
     background-color: rgb(0,0,0,.6)
 
     .header
@@ -145,6 +145,12 @@
                         .content
                             color: v.$hp
                     
+                    &.s.atk
+                        outline: 1px solid v.$atk
+                        .title
+                            background-color: v.$atk
+                        .content
+                            color: v.$atk
                     &.atk
                         outline: 1px solid v.$atk
                         .title

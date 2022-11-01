@@ -81,11 +81,55 @@ function resetModal() {
   modal.innerHTML = "";
 }
 
+// change stats names
+function renameStat(stat) {
+  switch (stat) {
+    case "hp":
+      return "HP";
+    case "attack":
+      return "Atk";
+    case "defense":
+      return "Def";
+    case "special-attack":
+      return "S.Atk";
+    case "special-defense":
+      return "S.Def";
+    case "speed":
+      return "Spd";
+  }
+}
+
+function renameClass(stat) {
+  switch (stat) {
+    case "hp":
+      return "hp";
+    case "attack":
+      return "atk";
+    case "defense":
+      return "def";
+    case "special-attack":
+      return "atk";
+    case "special-defense":
+      return "def";
+    case "speed":
+      return "spd";
+  }
+}
+
 // draw modal on click
 function drawModalWithPokemon(pokemon) {
-  const { name, imgURL, types, id, mainType } = pokemon;
+  const {
+    name,
+    imgURL,
+    types,
+    abilities,
+    id,
+    mainType,
+    weight,
+    height,
+    stats,
+  } = pokemon;
   const pokeNumber = lpad(id, 3, 0);
-
   // clean modal HTML
   resetModal();
 
@@ -119,7 +163,6 @@ function drawModalWithPokemon(pokemon) {
   modal.append(header);
   modal.append(mainContent);
   mainContent.innerHTML += `
-
   <div class="showcase">
   <img
           src=${imgURL}
@@ -137,8 +180,9 @@ function drawModalWithPokemon(pokemon) {
           <div class="row abilities">
             <p class="title">Abilities</p>
             <ul class="list">
-              <li>item</li>
-              <li>item</li>
+              ${abilities
+                .map((e) => `<p class="ability">${e.ability.name}</p>`)
+                .join("")}
             </ul>
           </div>
           <div class="row catch-rate">
@@ -155,46 +199,31 @@ function drawModalWithPokemon(pokemon) {
           <div class="row weight-height">
             <div class="flex">
               <p class="title">Weight</p>
-              <p class="content">0.0 <span>kg</span></p>
+              <p class="content">${weight / 10} <span>kg</span></p>
             </div>
             <div class="flex">
               <p class="title">Height</p>
-              <p class="content">0.0 <span>cm</span></p>
+              <p class="content">${height / 10} <span>m</span></p>
             </div>
           </div>
         </div>
         <div class="stats-container">
           <p class="title">Stats</p>
           <div class="content">
-            <div class="stat hp">
-              <p class="title">HP</p>
-              <p class="content">45</p>
-            </div>
-
-            <div class="stat atk">
-              <p class="title">Atk</p>
-              <p class="content">45</p>
-            </div>
-
-            <div class="stat def">
-              <p class="title">Def</p>
-              <p class="content">45</p>
-            </div>
-
-            <div class="stat atk">
-              <p class="title">S.Atk</p>
-              <p class="content">45</p>
-            </div>
-
-            <div class="stat def">
-              <p class="title">S.Def</p>
-              <p class="content">45</p>
-            </div>
-
-            <div class="stat spd">
-              <p class="title">Spd</p>
-              <p class="content">45</p>
-            </div>
+            ${stats
+              .map((stat) => {
+                const value = stat.base_stat;
+                const statName = renameStat(stat.stat.name);
+                const className = renameClass(stat.stat.name);
+                console.log(stat.stat.name);
+                return `
+              <div class="stat ${className}">
+                <p class="title">${statName}</p>
+                <p class="content">${value}</p>
+              </div>
+              `;
+              })
+              .join("")}
           </div>
         </div>
 

@@ -4,6 +4,10 @@ class Pokemon {
   order;
   mainType;
   types = [];
+  abilities = [];
+  height;
+  weight;
+  stats = [];
   imgURL;
   spriteURL;
 }
