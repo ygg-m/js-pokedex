@@ -1,20 +1,45 @@
+.hide {
+  display: none;
+}
+
 #modal {
   z-index: 10;
   transform-style: preserve-3d;
   width: 100%;
-  height: calc(100vh - 3rem);
+  height: 100vh;
   position: fixed;
   left: 0;
-  bottom: 0;
-  border-radius: 1rem 1rem 0 0;
-  background-color: #fff;
+  right: 0;
+  top: 0;
+  overflow-y: scroll;
+  background-color: rgba(0, 0, 0, 0.6);
 }
-#modal.grass .showcase {
-  background-color: #56A92C;
+#modal .header {
+  text-transform: capitalize;
+  z-index: 1;
+  position: absolute;
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  text-shadow: 0 2px 0.5rem rgba(0, 0, 0, 0.5);
 }
-#modal::before {
-  translate: 0 0 -10px;
-  content: "";
+#modal .header .name {
+  font-size: 1.5rem;
+}
+#modal .header span {
+  font-weight: 400;
+  opacity: 0.7;
+}
+#modal .header #close-button {
+  filter: drop-shadow(0 2px 0.5rem rgba(0, 0, 0, 0.5));
+  width: 2rem;
+  cursor: pointer;
+}
+#modal .bg-dim {
+  z-index: -1;
   width: 100vw;
   height: 100vh;
   position: absolute;
@@ -22,23 +47,357 @@
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.8);
 }
-#modal .header {
-  z-index: 1;
-  position: absolute;
-  width: 100%;
-  padding: 1rem;
+#modal .content {
+  padding-top: 0.5rem;
+  height: 100%;
   display: flex;
-  justify-content: space-between;
-  color: #fff;
-  text-shadow: 0 2px 0.5rem rgba(0, 0, 0, 0.5);
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #fff;
 }
-#modal .header span {
-  font-weight: 400;
-  opacity: 0.7;
+#modal .content .main-info-container .types .title {
+  color: #999;
+  padding: 0;
+}
+#modal .content .main-info-container .types p {
+  color: #fff;
+  padding: 0 0.5rem;
+  border-radius: 0.2rem;
+  text-transform: capitalize;
+}
+#modal .content .main-info-container .types p.grass {
+  background-color: #56A92C;
+}
+#modal .content .main-info-container .types p.fire {
+  background-color: #d14b22;
+}
+#modal .content .main-info-container .types p.water {
+  background-color: #668ff0;
+}
+#modal .content .main-info-container .types p.normal {
+  background-color: #a8a878;
+}
+#modal .content .main-info-container .types p.bug {
+  background-color: #9FAE1D;
+}
+#modal .content .main-info-container .types p.fairy {
+  background-color: #DF82DF;
+}
+#modal .content .main-info-container .types p.steel {
+  background-color: #818198;
+}
+#modal .content .main-info-container .types p.dark {
+  background-color: #705848;
+}
+#modal .content .main-info-container .types p.dragon {
+  background-color: #7038f8;
+}
+#modal .content .main-info-container .types p.ghost {
+  background-color: #705898;
+}
+#modal .content .main-info-container .types p.rock {
+  background-color: #A68E27;
+}
+#modal .content .main-info-container .types p.psychic {
+  background-color: #f85888;
+}
+#modal .content .main-info-container .types p.flying {
+  background-color: #a890f0;
+}
+#modal .content .main-info-container .types p.ground {
+  background-color: #BD9937;
+}
+#modal .content .main-info-container .types p.poison {
+  background-color: #a040a0;
+}
+#modal .content .main-info-container .types p.fighting {
+  background-color: #c03028;
+}
+#modal .content .main-info-container .types p.ice {
+  background-color: #98d8d8;
+}
+#modal .content .main-info-container .types p.electric {
+  background-color: #D8AD00;
+}
+#modal .content .main-info-container .abilities {
+  text-transform: capitalize;
+}
+#modal .content .main-info-container .abilities .ability {
+  border-radius: 0.2rem;
+  padding: 0 0.5rem;
+  background-color: #eee;
+}
+#modal .content .main-info-container .title {
+  color: #999;
+}
+#modal .content .main-info-container .row {
+  max-width: 35rem;
+  border-bottom: solid 1px #ccc;
+  padding: 0.5rem 1rem;
+  display: grid;
+  grid-template-columns: 8rem 1fr;
+}
+#modal .content .main-info-container .row .list {
+  display: flex;
+  list-style: none;
+  gap: 1rem;
+}
+#modal .content .main-info-container .weight-height {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+#modal .content .main-info-container .weight-height .flex:first-child {
+  border-right: solid 1px #ccc;
+}
+#modal .content .main-info-container .weight-height .flex {
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+}
+#modal .content .main-info-container .weight-height .flex .content {
+  flex-direction: row;
+  gap: 0.5rem;
+  padding: 0;
+}
+#modal .content .main-info-container .weight-height .flex .content span {
+  color: #999;
+}
+#modal .content .main-info-container .catch-rate .rate {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+#modal .content .main-info-container .catch-rate .rate .explanation {
+  flex-basis: 50%;
+  font-style: italic;
+  font-size: 0.7rem;
+  color: #999;
+}
+#modal .content .stats-container {
+  padding: 1rem 2rem 2rem;
+  display: grid;
+  justify-items: center;
+  gap: 0.5rem;
+  border-bottom: solid 1px #ccc;
+}
+#modal .content .stats-container .title {
+  color: #999;
+}
+#modal .content .stats-container .content {
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+#modal .content .stats-container .content .stat {
+  width: 4rem;
+  border-radius: 0.3rem;
+}
+#modal .content .stats-container .content .stat .title {
+  text-align: center;
+  color: #fff;
+  width: 100%;
+  padding: 0.3rem 0;
+}
+#modal .content .stats-container .content .stat .content {
+  text-align: center;
+  font-weight: bold;
+  padding: 0.3rem 0;
+  width: 100%;
+}
+#modal .content .stats-container .content .stat.hp {
+  outline: 1px solid #EB5757;
+  outline: 1px solid #F2994A;
+}
+#modal .content .stats-container .content .stat.hp .title {
+  background-color: #EB5757;
+}
+#modal .content .stats-container .content .stat.hp .content {
+  color: #EB5757;
+}
+#modal .content .stats-container .content .stat.hp .title {
+  background-color: #F2994A;
+}
+#modal .content .stats-container .content .stat.hp .content {
+  color: #F2994A;
+}
+#modal .content .stats-container .content .stat.atk {
+  outline: 1px solid #F2994A;
+}
+#modal .content .stats-container .content .stat.atk .title {
+  background-color: #F2994A;
+}
+#modal .content .stats-container .content .stat.atk .content {
+  color: #F2994A;
+}
+#modal .content .stats-container .content .stat.def {
+  outline: 1px solid #2D9CDB;
+}
+#modal .content .stats-container .content .stat.def .title {
+  background-color: #2D9CDB;
+}
+#modal .content .stats-container .content .stat.def .content {
+  color: #2D9CDB;
+}
+#modal .content .stats-container .content .stat.spd {
+  outline: 1px solid #9B51E0;
+}
+#modal .content .stats-container .content .stat.spd .title {
+  background-color: #9B51E0;
+}
+#modal .content .stats-container .content .stat.spd .content {
+  color: #9B51E0;
+}
+#modal .content .evolutions-container {
+  width: 100%;
+  padding: 1rem 0 2rem;
+  display: grid;
+  justify-items: center;
+  gap: 0.5rem;
+  border-bottom: solid 1px #ccc;
+}
+#modal .content .evolutions-container .title {
+  color: #999;
+}
+#modal .content .evolutions-container .evolution-path {
+  width: 100%;
+  min-height: 210px;
+  overflow-x: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+#modal .content .evolutions-container .evolution-path .evolution {
+  min-width: 110px;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  text-align: center;
+}
+#modal .content .evolutions-container .evolution-path .evolution .img-container {
+  position: relative;
+}
+#modal .content .evolutions-container .evolution-path .evolution .img-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 80%;
+  height: 80%;
+  background-image: url("../img/flat-pokeball.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 100%;
+  opacity: 0.1;
+}
+#modal .content .evolutions-container .evolution-path .evolution .types {
+  font-size: 0.85rem;
+}
+#modal .content .evolutions-container .evolution-path .evolution .types .type.grass {
+  color: #56A92C;
+}
+#modal .content .evolutions-container .evolution-path .evolution .types .type.poison {
+  color: #a040a0;
+}
+#modal .content .evolutions-container .evolution-path .evolution.grass {
+  outline: 1px solid #56A92C;
+}
+#modal .content .evolutions-container .evolution-path .path {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: #999;
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+}
+#modal .content .evolutions-container .evolution-path .path .img-container {
+  width: 24px;
+  height: 24px;
+}
+#modal .content .evolutions-container .evolution-path .path object {
+  opacity: 0.2;
+  rotate: 180deg;
+}
+#modal.grass .showcase {
+  background-color: #56A92C;
+  border-bottom: solid 1px #3E612C;
+}
+#modal.fire .showcase {
+  background-color: #d14b22;
+  border-bottom: solid 1px #732706;
+}
+#modal.water .showcase {
+  background-color: #668ff0;
+  border-bottom: solid 1px #254DAA;
+}
+#modal.normal .showcase {
+  background-color: #a8a878;
+  border-bottom: solid 1px #585833;
+}
+#modal.bug .showcase {
+  background-color: #9FAE1D;
+  border-bottom: solid 1px #717F00;
+}
+#modal.fairy .showcase {
+  background-color: #DF82DF;
+  border-bottom: solid 1px #934B93;
+}
+#modal.steel .showcase {
+  background-color: #818198;
+  border-bottom: solid 1px #52526B;
+}
+#modal.dark .showcase {
+  background-color: #705848;
+  border-bottom: solid 1px #49382D;
+}
+#modal.dragon .showcase {
+  background-color: #7038f8;
+  border-bottom: solid 1px #461EA6;
+}
+#modal.ghost .showcase {
+  background-color: #705898;
+  border-bottom: solid 1px #4A3372;
+}
+#modal.rock .showcase {
+  background-color: #A68E27;
+  border-bottom: solid 1px #816C12;
+}
+#modal.psychic .showcase {
+  background-color: #f85888;
+  border-bottom: solid 1px #934B93;
+}
+#modal.flying .showcase {
+  background-color: #a890f0;
+  border-bottom: solid 1px #513B95;
+}
+#modal.ground .showcase {
+  background-color: #BD9937;
+  border-bottom: solid 1px #876507;
+}
+#modal.poison .showcase {
+  background-color: #a040a0;
+  border-bottom: solid 1px #622562;
+}
+#modal.fighting .showcase {
+  background-color: #c03028;
+  border-bottom: solid 1px #71130D;
+}
+#modal.ice .showcase {
+  background-color: #98d8d8;
+  border-bottom: solid 1px #3B8B8B;
+}
+#modal.electric .showcase {
+  background-color: #D8AD00;
+  border-bottom: solid 1px #A4850B;
 }
 #modal .showcase {
   position: relative;
-  border-radius: 1rem 1rem 0 0;
   display: flex;
   align-items: flex-end;
   width: 100%;

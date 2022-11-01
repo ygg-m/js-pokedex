@@ -1,26 +1,50 @@
 @use './_variables.sass' as v
 @use './_mixin.sass' as m
 
+
+.hide
+    display: none
+
 #modal
     z-index: 10
     transform-style: preserve-3d
     width: 100%
-    height: calc(100vh - 3rem)
+    height: 100vh
     position: fixed
     left: 0
-    bottom: 0
-    border-radius: 1rem 1rem 0 0
+    right: 0
+    top: 0
+    overflow-y: scroll  
+    background-color: rgb(0,0,0,.6)
 
-    background-color: #fff
+    .header
+        text-transform: capitalize
+        z-index: 1
+        position: absolute
+        width: 100%
+        padding: 1rem
+        display: flex
+        justify-content: space-between
+        align-items: center
+        color: #fff
+        text-shadow: 0 2px .5rem rgb(0,0,0,.5)
 
-    &.grass
-        .header
-        .showcase
-            background-color: v.$grass
+        .name
+            font-size: 1.5rem 
 
-    &::before
-        translate: 0 0 -10px
-        content: ''
+        span
+            font-weight: 400
+            opacity: .7
+
+        #close-button
+            filter: drop-shadow(0 2px .5rem rgb(0,0,0,.5))
+            width: 2rem
+            cursor: pointer 
+
+
+
+    .bg-dim
+        z-index: -1
         width: 100vw
         height: 100vh
         position: absolute
@@ -29,23 +53,323 @@
 
         background-color: rgb(0, 0, 0, .8)
 
-    .header
-        z-index: 1
-        position: absolute
-        width: 100%
-        padding: 1rem
+    .content
+        padding-top: .5rem
+        height: 100%
         display: flex
-        justify-content: space-between
-        color: #fff
-        text-shadow: 0 2px .5rem rgb(0,0,0,.5)
+        flex-direction: column
+        justify-content: flex-start
+        align-items: center
+        background-color: #fff
 
-        span
-            font-weight: 400
-            opacity: .7
+        .main-info-container
+            .types
+                .title
+                    color: #999
+                    padding: 0
+                p
+                    color: #fff
+                    padding: 0 .5rem
+                    border-radius: .2rem
+                    text-transform: capitalize
+                    &.grass
+                        background-color: v.$grass
+                    &.fire
+                        background-color: v.$fire
+                    &.water
+                        background-color: v.$water
+                    &.normal
+                        background-color: v.$normal
+                    &.bug
+                        background-color: v.$bug
+                    &.fairy
+                        background-color: v.$fairy
+                    &.steel
+                        background-color: v.$steel
+                    &.dark
+                        background-color: v.$dark
+                    &.dragon
+                        background-color: v.$dragon
+                    &.ghost
+                        background-color: v.$ghost
+                    &.rock
+                        background-color: v.$rock
+                    &.psychic
+                        background-color: v.$psychic
+                    &.flying
+                        background-color: v.$flying
+                    &.ground
+                        background-color: v.$ground
+                    &.poison
+                        background-color: v.$poison
+                    &.fighting
+                        background-color: v.$fighting
+                    &.ice
+                        background-color: v.$ice
+                    &.electric
+                        background-color: v.$electric
+
+            .abilities
+                text-transform: capitalize
+                .ability
+                    border-radius: .2rem
+                    padding: 0 .5rem
+                    background-color: #eee
+
+            .title
+                color: #999
+            .row
+                max-width: 35rem
+                border-bottom: solid 1px #ccc
+                padding: .5rem 1rem
+                display: grid
+                grid-template-columns: 8rem 1fr
+
+                .list
+                    display: flex
+                    list-style: none
+                    gap: 1rem
+
+            .weight-height
+                display: grid
+                grid-template-columns: 1fr 1fr
+                .flex:first-child
+                    border-right: solid 1px #ccc
+                .flex
+                    gap: 1rem
+                    align-items: center
+                    justify-content: center
+
+                    .content
+                        flex-direction: row
+                        gap: .5rem
+                        padding: 0
+
+                        span
+                            color: #999
+
+            .catch-rate
+                .rate
+                    display: flex
+                    align-items: center
+                    gap: 1rem
+                    .explanation
+                        flex-basis: 50%
+                        font-style: italic
+                        font-size: .7rem
+                        color: #999
+
+        .stats-container
+            padding: 1rem 2rem 2rem
+            display: grid
+            justify-items: center
+            gap: .5rem
+
+            border-bottom: solid 1px #ccc
+
+            .title
+                color: #999
+
+            .content
+                flex-direction: row
+                justify-content: center
+                flex-wrap: wrap
+                gap: 1rem
+
+                .stat
+                    width: 4rem
+                    border-radius: .3rem
+
+                    .title
+                        text-align: center
+                        color: #fff
+                        width: 100%
+                        padding: .3rem 0
+                        
+                    .content
+                        text-align: center
+                        font-weight: bold
+                        padding: .3rem 0
+                        width: 100%
+
+                    &.hp
+                        outline: 1px solid v.$hp
+                        .title
+                            background-color: v.$hp
+                        .content
+                            color: v.$hp
+                    
+                        outline: 1px solid v.$atk
+                        .title
+                            background-color: v.$atk
+                        .content
+                            color: v.$atk
+                    &.atk
+                        outline: 1px solid v.$atk
+                        .title
+                            background-color: v.$atk
+                        .content
+                            color: v.$atk
+                    &.def
+                        outline: 1px solid v.$def
+                        .title
+                            background-color: v.$def
+                        .content
+                            color: v.$def
+                    &.spd
+                        outline: 1px solid v.$spd
+                        .title
+                            background-color: v.$spd
+                        .content
+                            color: v.$spd
+
+        .evolutions-container
+            width: 100%
+            padding: 1rem 0 2rem
+            display: grid
+            justify-items: center
+            gap: .5rem
+
+            border-bottom: solid 1px #ccc
+
+            .title
+                color: #999
+
+            .evolution-path
+                width: 100%
+                min-height: 210px
+                overflow-x: auto
+                @include m.flex-center
+                gap: 1rem
+
+                .evolution
+                    min-width: 110px
+                    padding: .5rem
+                    border-radius: .5rem
+                    text-align: center
+                    .img-container
+                        position: relative
+                        
+                        &::before
+
+                    
+                            content: ''
+                            position: absolute
+                            top: 0
+                            bottom: 0
+                            left: 0
+                            right: 0
+                            margin: auto
+                            width: 80%
+                            height: 80%
+                            background-image: url('../img/flat-pokeball.svg')
+                            background-repeat: no-repeat
+                            background-position: center
+                            background-size: 100% 100%
+                            opacity: .1
+
+                    .types
+                        font-size: .85rem
+                        .type
+                            &.grass
+                                color: v.$grass
+                            &.poison
+                                color: v.$poison
+
+                    &.grass
+                        outline: 1px solid v.$grass
+
+                .path
+                    @include m.flex-center
+                    flex-direction: column
+                    color: #999
+                    min-width: fit-content
+                    .img-container
+                        width: 24px
+                        height: 24px
+                    object
+                        opacity: .2
+                        rotate: 180deg
+
+
+
+
+    &.grass
+        .showcase
+            background-color: v.$grass
+            border-bottom: solid 1px v.$grass-dark
+
+    &.fire
+        .showcase
+            background-color: v.$fire
+            border-bottom: solid 1px v.$fire-dark
+    &.water
+        .showcase
+            background-color: v.$water
+            border-bottom: solid 1px v.$water-dark
+    &.normal
+        .showcase
+            background-color: v.$normal
+            border-bottom: solid 1px v.$normal-dark
+    &.bug
+        .showcase
+            background-color: v.$bug
+            border-bottom: solid 1px v.$bug-dark
+    &.fairy
+        .showcase
+            background-color: v.$fairy
+            border-bottom: solid 1px v.$fairy-dark
+    &.steel
+        .showcase
+            background-color: v.$steel
+            border-bottom: solid 1px v.$steel-dark
+    &.dark
+        .showcase
+            background-color: v.$dark
+            border-bottom: solid 1px v.$dark-dark
+    &.dragon
+        .showcase
+            background-color: v.$dragon
+            border-bottom: solid 1px v.$dragon-dark
+    &.ghost
+        .showcase
+            background-color: v.$ghost
+            border-bottom: solid 1px v.$ghost-dark
+    &.rock
+        .showcase
+            background-color: v.$rock
+            border-bottom: solid 1px v.$rock-dark
+    &.psychic
+        .showcase
+            background-color: v.$psychic
+            border-bottom: solid 1px v.$psychic-dark
+    &.flying
+        .showcase
+            background-color: v.$flying
+            border-bottom: solid 1px v.$flying-dark
+    &.ground
+        .showcase
+            background-color: v.$ground
+            border-bottom: solid 1px v.$ground-dark
+    &.poison
+        .showcase
+            background-color: v.$poison
+            border-bottom: solid 1px v.$poison-dark
+    &.fighting
+        .showcase
+            background-color: v.$fighting
+            border-bottom: solid 1px v.$fighting-dark
+    &.ice
+        .showcase
+            background-color: v.$ice
+            border-bottom: solid 1px v.$ice-dark
+    &.electric
+        .showcase
+            background-color: v.$electric
+            border-bottom: solid 1px v.$electric-dark
 
     .showcase
         position: relative
-        border-radius: 1rem 1rem 0 0
         display: flex
         align-items: flex-end
         width: 100%
@@ -70,3 +394,4 @@
             object-fit: contain
             height: 85%
             filter: drop-shadow(0 0 1rem rgb(255, 255, 255, .5))
+
