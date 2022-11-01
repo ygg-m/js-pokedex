@@ -56,6 +56,78 @@
   align-items: center;
   background-color: #fff;
 }
+#modal .content .main-info-container .types .title {
+  color: #999;
+  padding: 0;
+}
+#modal .content .main-info-container .types p {
+  color: #fff;
+  padding: 0 0.5rem;
+  border-radius: 0.2rem;
+  text-transform: capitalize;
+}
+#modal .content .main-info-container .types p.grass {
+  background-color: #56A92C;
+}
+#modal .content .main-info-container .types p.fire {
+  background-color: #d14b22;
+}
+#modal .content .main-info-container .types p.water {
+  background-color: #668ff0;
+}
+#modal .content .main-info-container .types p.normal {
+  background-color: #a8a878;
+}
+#modal .content .main-info-container .types p.bug {
+  background-color: #9FAE1D;
+}
+#modal .content .main-info-container .types p.fairy {
+  background-color: #DF82DF;
+}
+#modal .content .main-info-container .types p.steel {
+  background-color: #818198;
+}
+#modal .content .main-info-container .types p.dark {
+  background-color: #705848;
+}
+#modal .content .main-info-container .types p.dragon {
+  background-color: #7038f8;
+}
+#modal .content .main-info-container .types p.ghost {
+  background-color: #705898;
+}
+#modal .content .main-info-container .types p.rock {
+  background-color: #A68E27;
+}
+#modal .content .main-info-container .types p.psychic {
+  background-color: #f85888;
+}
+#modal .content .main-info-container .types p.flying {
+  background-color: #a890f0;
+}
+#modal .content .main-info-container .types p.ground {
+  background-color: #BD9937;
+}
+#modal .content .main-info-container .types p.poison {
+  background-color: #a040a0;
+}
+#modal .content .main-info-container .types p.fighting {
+  background-color: #c03028;
+}
+#modal .content .main-info-container .types p.ice {
+  background-color: #98d8d8;
+}
+#modal .content .main-info-container .types p.electric {
+  background-color: #D8AD00;
+}
+#modal .content .main-info-container .abilities {
+  text-transform: capitalize;
+}
+#modal .content .main-info-container .abilities .ability {
+  border-radius: 0.2rem;
+  padding: 0 0.5rem;
+  background-color: #eee;
+}
 #modal .content .main-info-container .title {
   color: #999;
 }
@@ -136,6 +208,7 @@
 }
 #modal .content .stats-container .content .stat.hp {
   outline: 1px solid #EB5757;
+  outline: 1px solid #F2994A;
 }
 #modal .content .stats-container .content .stat.hp .title {
   background-color: #EB5757;
@@ -143,13 +216,10 @@
 #modal .content .stats-container .content .stat.hp .content {
   color: #EB5757;
 }
-#modal .content .stats-container .content .stat.s.atk {
-  outline: 1px solid #F2994A;
-}
-#modal .content .stats-container .content .stat.s.atk .title {
+#modal .content .stats-container .content .stat.hp .title {
   background-color: #F2994A;
 }
-#modal .content .stats-container .content .stat.s.atk .content {
+#modal .content .stats-container .content .stat.hp .content {
   color: #F2994A;
 }
 #modal .content .stats-container .content .stat.atk {
@@ -257,6 +327,74 @@
 #modal.grass .showcase {
   background-color: #56A92C;
   border-bottom: solid 1px #3E612C;
+}
+#modal.fire .showcase {
+  background-color: #d14b22;
+  border-bottom: solid 1px #732706;
+}
+#modal.water .showcase {
+  background-color: #668ff0;
+  border-bottom: solid 1px #254DAA;
+}
+#modal.normal .showcase {
+  background-color: #a8a878;
+  border-bottom: solid 1px #585833;
+}
+#modal.bug .showcase {
+  background-color: #9FAE1D;
+  border-bottom: solid 1px #717F00;
+}
+#modal.fairy .showcase {
+  background-color: #DF82DF;
+  border-bottom: solid 1px #934B93;
+}
+#modal.steel .showcase {
+  background-color: #818198;
+  border-bottom: solid 1px #52526B;
+}
+#modal.dark .showcase {
+  background-color: #705848;
+  border-bottom: solid 1px #49382D;
+}
+#modal.dragon .showcase {
+  background-color: #7038f8;
+  border-bottom: solid 1px #461EA6;
+}
+#modal.ghost .showcase {
+  background-color: #705898;
+  border-bottom: solid 1px #4A3372;
+}
+#modal.rock .showcase {
+  background-color: #A68E27;
+  border-bottom: solid 1px #816C12;
+}
+#modal.psychic .showcase {
+  background-color: #f85888;
+  border-bottom: solid 1px #934B93;
+}
+#modal.flying .showcase {
+  background-color: #a890f0;
+  border-bottom: solid 1px #513B95;
+}
+#modal.ground .showcase {
+  background-color: #BD9937;
+  border-bottom: solid 1px #876507;
+}
+#modal.poison .showcase {
+  background-color: #a040a0;
+  border-bottom: solid 1px #622562;
+}
+#modal.fighting .showcase {
+  background-color: #c03028;
+  border-bottom: solid 1px #71130D;
+}
+#modal.ice .showcase {
+  background-color: #98d8d8;
+  border-bottom: solid 1px #3B8B8B;
+}
+#modal.electric .showcase {
+  background-color: #D8AD00;
+  border-bottom: solid 1px #A4850B;
 }
 #modal .showcase {
   position: relative;
