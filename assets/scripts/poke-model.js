@@ -1,9 +1,9 @@
-
 class Pokemon {
-    id;
-    name;
-    order;
-    mainType;
-    types = [];
-
+  id;
+  name;
+  order;
+  mainType;
+  types = [];
+  imgURL;
+  spriteURL;
 }

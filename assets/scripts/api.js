@@ -6,6 +6,15 @@ const useApi = {
     pokemon.order = poke.order;
     pokemon.types = poke.types.map((typeSlot) => typeSlot.type.name);
     pokemon.mainType = pokemon.types[0];
+    pokemon.imgURL =
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/" +
+      poke.id +
+      ".png";
+
+    pokemon.spriteURL =
+      "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" +
+      poke.id +
+      ".png";
 
     return pokemon;
   },
