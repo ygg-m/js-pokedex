@@ -1,15 +1,41 @@
+.hide {
+  display: none;
+}
+
 #modal {
   z-index: 10;
   transform-style: preserve-3d;
   width: 100%;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
+  height: 100vh;
   position: fixed;
   left: 0;
-  bottom: 0;
+  right: 0;
+  top: 0;
   overflow-y: scroll;
-  display: none;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+#modal .header {
+  z-index: 1;
+  position: absolute;
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  text-shadow: 0 2px 0.5rem rgba(0, 0, 0, 0.5);
+}
+#modal .header .name {
+  text-transform: capitalize;
+}
+#modal .header span {
+  font-weight: 400;
+  opacity: 0.7;
+}
+#modal .header #close-button {
+  filter: drop-shadow(0 2px 0.5rem rgba(0, 0, 0, 0.5));
+  width: 2rem;
+  cursor: pointer;
 }
 #modal .bg-dim {
   z-index: -1;
@@ -221,21 +247,6 @@
 #modal.grass .showcase {
   background-color: #56A92C;
   border-bottom: solid 1px #3E612C;
-}
-#modal .header {
-  z-index: 1;
-  position: fixed;
-  width: 100%;
-  padding: 1rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: #fff;
-  text-shadow: 0 2px 0.5rem rgba(0, 0, 0, 0.5);
-}
-#modal .header span {
-  font-weight: 400;
-  opacity: 0.7;
 }
 #modal .showcase {
   position: relative;

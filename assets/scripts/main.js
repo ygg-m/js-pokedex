@@ -75,7 +75,9 @@ function drawPokeCard(pokemon) {
 
   // add event listener
   pokeCard.addEventListener("click", () => {
-    console.log("click");
+    drawModalWithPokemon(pokemon);
+
+    toggleModal();
   });
 
   // add types
@@ -84,17 +86,63 @@ function drawPokeCard(pokemon) {
     .join("")}`;
 }
 
+// toggle modal on/off
+function toggleModal() {
+  modal.classList.toggle("hide");
+}
+
+// reset modal
+function resetModal() {
+  modal.innerHTML = "";
+}
+
+// draw modal
+function drawModalWithPokemon(pokemon) {
+  const { name, types, id, mainType } = pokemon;
+
+  document.body.style = "overflow: no-scroll";
+
+  // reset modal
+  resetModal();
+
+  // ui elements
+  // header
+  const header = document.createElement("div");
+  const number = document.createElement("h3");
+  const pokeName = document.createElement("h2");
+  const closeButton = document.createElement("img");
+
+  // showcase
+  const showcase = document.createElement("div");
+  
+
+  // add classes
+  header.classList.add("header");
+  number.classList.add("number");
+  pokeName.classList.add("name");
+
+  // add data
+  closeButton.id = "close-button";
+  closeButton.src = "./assets/img/close.svg";
+
+  // add content
+  number.innerHTML = "<span>#</span>" + lpad(id, 3, 0);
+  pokeName.innerText = name;
+
+  // draw ui
+  modal.append(header);
+  header.append(number, pokeName, closeButton);
+
+  // close modal button
+  closeButton.addEventListener("click", () => {
+    toggleModal();
+    document.body.style = "";
+  });
+}
+
 // returns the string with 0 before it
 lpad = function (string, width, char) {
   return string.length >= width
     ? string
     : (new Array(width).join(char) + string).slice(-width);
 };
-
-function addListeners() {
-  for (var i = 0; i < pokeCardList.length; i++) {
-    pokeCardList[i].addEventListener("click", () => {
-      console.log("click");
-    });
-  }
-}
