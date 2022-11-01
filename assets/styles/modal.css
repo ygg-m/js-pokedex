@@ -208,19 +208,12 @@
 }
 #modal .content .stats-container .content .stat.hp {
   outline: 1px solid #EB5757;
-  outline: 1px solid #F2994A;
 }
 #modal .content .stats-container .content .stat.hp .title {
   background-color: #EB5757;
 }
 #modal .content .stats-container .content .stat.hp .content {
   color: #EB5757;
-}
-#modal .content .stats-container .content .stat.hp .title {
-  background-color: #F2994A;
-}
-#modal .content .stats-container .content .stat.hp .content {
-  color: #F2994A;
 }
 #modal .content .stats-container .content .stat.atk {
   outline: 1px solid #F2994A;
