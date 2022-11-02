@@ -10,4 +10,5 @@ class Pokemon {
   stats = [];
   imgURL;
   spriteURL;
+  evolution_chain = [];
 }

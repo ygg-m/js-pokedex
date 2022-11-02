@@ -130,6 +130,7 @@ function drawModalWithPokemon(pokemon) {
     stats,
   } = pokemon;
   const pokeNumber = lpad(id, 3, 0);
+
   // clean modal HTML
   resetModal();
 
@@ -185,17 +186,6 @@ function drawModalWithPokemon(pokemon) {
                 .join("")}
             </ul>
           </div>
-          <div class="row catch-rate">
-            <p class="title">Catch rate</p>
-            <p class="rate">
-              00%
-              <span class="explanation">
-                When a normal Poké Ball is thrown at full health in Generation
-                VII.
-              </span>
-            </p>
-          </div>
-
           <div class="row weight-height">
             <div class="flex">
               <p class="title">Weight</p>
@@ -215,7 +205,6 @@ function drawModalWithPokemon(pokemon) {
                 const value = stat.base_stat;
                 const statName = renameStat(stat.stat.name);
                 const className = renameClass(stat.stat.name);
-                console.log(stat.stat.name);
                 return `
               <div class="stat ${className}">
                 <p class="title">${statName}</p>

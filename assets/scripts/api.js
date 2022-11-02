@@ -20,25 +20,38 @@ const useApi = {
       poke.id +
       ".png";
 
+    pokemon.evolution_chain = poke.evolution_chain;
+
     return pokemon;
   },
 
   getPokeDetails(poke) {
     return fetch(poke.url)
       .then((res) => res.json())
-      .then(useApi.apiToPokeModel);
+      .then(useApi.apiToPokeModel)
+      .catch((err) => console.log(err));
   },
 
-  getSpecies(poke) {
-    const url = "https://pokeapi.co/api/v2/pokemon-species/";
+  getSpecies(id) {
+    const url = `https://pokeapi.co/api/v2/pokemon-species/${id}`;
     return fetch(url)
       .then((res) => res.json())
-      .then((res) => res.results);
+      .then((res) => res)
+      .catch((err) => console.log(err));
+  },
+
+  getEvolutions(id) {
+    const url = `https://pokeapi.co/api/v2/pokemon-species/${id}`;
+    return fetch(url)
+      .then((res) => res.json())
+      .then((res) => fetch(res.evolution_chain.url))
+      .then((res) => res.json())
+      .then(useApi.apiToPokeModel)
+      .catch((err) => console.log(err));
   },
 
   getPokemons(offset = 0, limit = 20) {
     const url = `https://pokeapi.co/api/v2/pokemon/?offset=${offset}&limit=${limit}`;
-
     return fetch(url)
       .then((res) => res.json())
       .then((res) => res.results)
