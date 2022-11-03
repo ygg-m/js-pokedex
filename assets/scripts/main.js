@@ -117,7 +117,7 @@ function renameClass(stat) {
 }
 
 // draw modal on click
-function drawModalWithPokemon(pokemon) {
+async function drawModalWithPokemon(pokemon) {
   const {
     name,
     imgURL,
@@ -130,7 +130,11 @@ function drawModalWithPokemon(pokemon) {
     stats,
   } = pokemon;
   const pokeNumber = lpad(id, 3, 0);
+  // -----------------------------------------
+  // get evolution chain
+  const { chain } = await useApi.getEvolutions(id);
 
+  //-----------------------------------------
   // clean modal HTML
   resetModal();
 
@@ -218,65 +222,72 @@ function drawModalWithPokemon(pokemon) {
 
         <div class="evolutions-container">
           <p class="title">Evolutions</p>
-          <div class="evolution-path">
-            <div class="evolution grass">
-              <div class="img-container">
-                <img
-                  src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png"
-                  alt="Bulbasaur"
-                />
-              </div>
-              <p class="name">Bulbasaur</p>
-              <div class="types">
-                <p class="type grass">Grass</p>
-                <p class="type poison">Poison</p>
-              </div>
-            </div>
+          ${chain.evolves_to.map((evolution) => {
+            console.log(evolution);
 
-            <div class="path">
-              <div class="img-container">
-                <img src="./assets/img/rare-candy.png" alt="Rare Candy" />
-              </div>
-              <p class="path-name">Level <span>7</span></p>
-              <object data="./assets/img/arrow.svg" type=""></object>
-            </div>
+            return `
+              <div class="evolution-path">
+                <div class="evolution grass">
+                  <div class="img-container">
+                    <img
+                      src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png"
+                      alt="Bulbasaur"
+                    />
+                  </div>
+                  <p class="name">${chain.species.name}</p>
+                  <div class="types">
+                    <p class="type grass">Grass</p>
+                    <p class="type poison">Poison</p>
+                  </div>
+                </div>
 
-            <div class="evolution grass">
-              <div class="img-container">
-                <img
-                  src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png"
-                  alt="Ivysaur"
-                />
-              </div>
-              <p class="name">Ivysaur</p>
-              <div class="types">
-                <p class="type grass">Grass</p>
-                <p class="type poison">Poison</p>
-              </div>
-            </div>
+                <div class="path">
+                  <div class="img-container">
+                    <img src="./assets/img/rare-candy.png" alt="Rare Candy" />
+                  </div>
+                  <p class="path-name">${evolution.evolution_details[0].trigger.name} <span>${evolution.evolution_details[0].min_level}</span></p>
+                  <object data="./assets/img/arrow.svg" type=""></object>
+                </div>
 
-            <div class="path">
-              <div class="img-container">
-                <img src="./assets/img/rare-candy.png" alt="Rare Candy" />
-              </div>
-              <p class="path-name">Level <span>7</span></p>
-              <object data="./assets/img/arrow.svg" type=""></object>
-            </div>
+                <div class="evolution grass">
+                  <div class="img-container">
+                    <img
+                      src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png"
+                      alt="Ivysaur"
+                    />
+                  </div>
+                  <p class="name">Ivysaur</p>
+                  <div class="types">
+                    <p class="type grass">Grass</p>
+                    <p class="type poison">Poison</p>
+                  </div>
+                </div>
 
-            <div class="evolution grass">
-              <div class="img-container">
-                <img
-                  src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png"
-                  alt="Venusaur"
-                />
+                <div class="path">
+                  <div class="img-container">
+                    <img src="./assets/img/rare-candy.png" alt="Rare Candy" />
+                  </div>
+                  <p class="path-name">Level <span>7</span></p>
+                  <object data="./assets/img/arrow.svg" type=""></object>
+                </div>
+
+                <div class="evolution grass">
+                  <div class="img-container">
+                    <img
+                      src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png"
+                      alt="Venusaur"
+                    />
+                  </div>
+                  <p class="name">Venusaur</p>
+                  <div class="types">
+                    <p class="type grass">Grass</p>
+                    <p class="type poison">Poison</p>
+                  </div>
+                </div>
               </div>
-              <p class="name">Venusaur</p>
-              <div class="types">
-                <p class="type grass">Grass</p>
-                <p class="type poison">Poison</p>
-              </div>
-            </div>
-          </div>
+          `;
+          })}
+          
         </div>
       </div>`;
 }

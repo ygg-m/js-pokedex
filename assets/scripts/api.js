@@ -46,7 +46,7 @@ const useApi = {
       .then((res) => res.json())
       .then((res) => fetch(res.evolution_chain.url))
       .then((res) => res.json())
-      .then(useApi.apiToPokeModel)
+      .then((res) => res)
       .catch((err) => console.log(err));
   },
 
