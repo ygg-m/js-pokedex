@@ -1,42 +1,44 @@
 const useApi = {
   apiToPokeModel(poke) {
+    const pokeEvolution = poke[0].chain;
+    const pokeInfo = poke[1];
+
+    // console.log(pokeEvolution);
+
     const pokemon = new Pokemon();
-    pokemon.name = poke.name;
-    pokemon.id = poke.id;
-    pokemon.order = poke.order;
-    pokemon.abilities = poke.abilities;
-    pokemon.height = poke.height;
-    pokemon.weight = poke.weight;
-    pokemon.types = poke.types.map((typeSlot) => typeSlot.type.name);
-    pokemon.stats = poke.stats;
-    pokemon.mainType = pokemon.types[0];
+    pokemon.name = pokeInfo.name;
+    pokemon.id = pokeInfo.id;
+    pokemon.order = pokeInfo.order;
+    pokemon.abilities = pokeInfo.abilities;
+    pokemon.height = pokeInfo.height;
+    pokemon.weight = pokeInfo.weight;
+    pokemon.types = pokeInfo.types.map((typeSlot) => typeSlot.type.name);
+    pokemon.stats = pokeInfo.stats;
+    pokemon.mainType = pokeInfo.types[0].type.name;
     pokemon.imgURL =
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/" +
-      poke.id +
+      pokeInfo.id +
       ".png";
 
     pokemon.spriteURL =
       "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" +
-      poke.id +
+      pokeInfo.id +
       ".png";
 
-    pokemon.evolution_chain = poke.evolution_chain;
+    pokemon.unevolvedName = pokeEvolution?.species?.name;
+    pokemon.evolutionList = pokeEvolution?.evolves_to;
+
+    
 
     return pokemon;
   },
 
   getPokeDetails(poke) {
-    return fetch(poke.url)
-      .then((res) => res.json())
-      .then(useApi.apiToPokeModel)
-      .catch((err) => console.log(err));
-  },
+    const pokeEvolutions = useApi.getEvolutions(poke.name);
+    const pokeInfo = fetch(poke.url).then((res) => res.json());
 
-  getSpecies(id) {
-    const url = `https://pokeapi.co/api/v2/pokemon-species/${id}`;
-    return fetch(url)
-      .then((res) => res.json())
-      .then((res) => res)
+    return Promise.all([pokeEvolutions, pokeInfo])
+      .then((res) => useApi.apiToPokeModel(res))
       .catch((err) => console.log(err));
   },
 
