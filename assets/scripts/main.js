@@ -5,8 +5,8 @@ const modal = document.getElementById("modal");
 
 // api variables
 const maxCardLoad = 151;
-const limit = 20;
-let offset = 100;
+const limit = 3;
+let offset = 130;
 
 // button, load more cards
 BtnLoadMore.addEventListener("click", () => {
@@ -158,10 +158,12 @@ async function drawModalWithPokemon(pokemon) {
     height,
     stats,
     evolutionList,
-    unevolvedName,
+    unevolved,
   } = pokemon;
   const pokeNumber = lpad(id, 3, 0);
   //-----------------------------------------
+  console.log(unevolved);
+
   // clean modal HTML
   resetModal();
 
@@ -264,7 +266,7 @@ async function drawModalWithPokemon(pokemon) {
                               alt="Bulbasaur"
                             />
                           </div>
-                          <p class="name">${unevolvedName}</p>
+                          <p class="name">${"unevolved.name"}</p>
                           <div class="types">
                             ${types
                               .map((type) => `<p class=${type}>${type}</p>`)
@@ -287,7 +289,7 @@ async function drawModalWithPokemon(pokemon) {
                               alt="Bulbasaur"
                             />
                           </div>
-                          <p class="name">${unevolvedName}</p>
+                          <p class="name">${"unevolvedName"}</p>
                           <div class="types">
                             <p class="type grass">Grass</p>
                             <p class="type poison">Poison</p>
