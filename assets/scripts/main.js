@@ -5,9 +5,8 @@ const modal = document.getElementById("modal");
 
 // api variables
 const maxCardLoad = 151;
-
 const limit = 3;
-let offset = 130;
+let offset = 279;
 
 // button, load more cards
 BtnLoadMore.addEventListener("click", () => {
