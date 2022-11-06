@@ -1,6 +1,5 @@
 const useApi = {
   apiToPokeModel(poke) {
-    const pokeEvolution = poke[0].chain;
     const pokeInfo = poke[1];
 
     // console.log(pokeEvolution);
@@ -25,8 +24,7 @@ const useApi = {
       pokeInfo.id +
       ".png";
 
-    pokemon.unevolvedName = pokeEvolution?.species?.name;
-    pokemon.evolutionList = pokeEvolution?.evolves_to;
+    pokemon.evolutionChain = poke[0].chain;
 
     
 
