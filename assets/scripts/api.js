@@ -1,7 +1,6 @@
 const useApi = {
   apiToPokeModel(poke) {
-    console.log(poke);
-    // const pokeEvolution = poke[0].chain;
+    const pokeEvolution = poke[0];
     const pokeInfo = poke[1];
 
     const pokemon = new Pokemon();
@@ -24,10 +23,9 @@ const useApi = {
       pokeInfo.id +
       ".png";
 
-    // pokemon.unevolved = poke[0].[0]
-    // pokemon.evolutionList = pokeEvolution?.evolves_to;
+    pokemon.evolutionChain = poke[0].chain;
 
-    // TODO: Add evolution info
+    // TODO: Add all evolution info
 
     return pokemon;
   },
@@ -47,6 +45,26 @@ const useApi = {
       .then((res) => res);
   },
 
+  buildEvolutionPath(chain, pokemonList, evolutionPaths) {
+    let pokemon = {
+      evolution_details: chain.evolution_details,
+      name: chain.species.name,
+      url: chain.species.url,
+    };
+    pokemonList.push(pokemon);
+    if (chain.evolves_to.length > 0) {
+      for (var newChain of chain.evolves_to) {
+        useApi.buildEvolutionPath(
+          newChain,
+          JSON.parse(JSON.stringify(pokemonList)),
+          evolutionPaths
+        );
+      }
+    } else {
+      evolutionPaths.push(JSON.parse(JSON.stringify(pokemonList)));
+    }
+  },
+
   getEvolutions(id) {
     const url = `https://pokeapi.co/api/v2/pokemon-species/${id}`;
     return fetch(url)
@@ -57,11 +75,13 @@ const useApi = {
         const unevolved = useApi.getMainInfo(res.chain.species.name); // get unevolved info
         const evolutionDetails = []; // store data from 1rst evolution
         const evolution2Details = []; // store data from 2nd evolution
+
         const evolutionList = res.chain.evolves_to; // evolution list from api
 
         evolutionList.map((evolution) => {
           // maps all 1rst evolutions
           evolutionDetails.push(useApi.getMainInfo(evolution.species.name)); // push first evolution
+
           // if it doesn't have 2nd evolution returns
           if (
             evolution.evolves_to[0].species.name === null ||

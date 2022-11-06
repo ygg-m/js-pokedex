@@ -159,6 +159,7 @@ async function drawModalWithPokemon(pokemon) {
     stats,
     evolutionList,
     unevolved,
+    evolutionChain,
   } = pokemon;
   const pokeNumber = lpad(id, 3, 0);
   //-----------------------------------------
@@ -192,6 +193,9 @@ async function drawModalWithPokemon(pokemon) {
 
   // modal classes
   modal.classList.add(mainType);
+
+  var evolutionPaths = new Array();
+  useApi.buildEvolutionPath(evolutionChain, new Array(), evolutionPaths);
 
   // draw ui
   modal.append(header);
