@@ -5,6 +5,7 @@ const modal = document.getElementById("modal");
 
 // api variables
 const maxCardLoad = 151;
+
 const limit = 3;
 let offset = 130;
 
@@ -157,8 +158,7 @@ async function drawModalWithPokemon(pokemon) {
     weight,
     height,
     stats,
-    evolutionList,
-    unevolved,
+    evolutionChain,
   } = pokemon;
   const pokeNumber = lpad(id, 3, 0);
   //-----------------------------------------
@@ -192,6 +192,10 @@ async function drawModalWithPokemon(pokemon) {
 
   // modal classes
   modal.classList.add(mainType);
+
+
+  var evolutionPaths = new Array();
+  buildEvolutionPath(evolutionChain, new Array(), evolutionPaths);
 
   // draw ui
   modal.append(header);
@@ -345,9 +349,6 @@ async function drawModalWithPokemon(pokemon) {
                       .join("")}`
               }
 
-
-          
-          
         </div>
       </div>`;
 }
@@ -358,3 +359,15 @@ lpad = function (string, width, char) {
     ? string
     : (new Array(width).join(char) + string).slice(-width);
 };
+
+function buildEvolutionPath(chain, pokemonList, evolutionPaths) {
+  let pokemon = {'evolution_details': chain.evolution_details, 'name': chain.species.name, 'url': chain.species.url};
+  pokemonList.push(pokemon);
+  if (chain.evolves_to.length  > 0) {
+    for(var newChain of chain.evolves_to){
+      buildEvolutionPath(newChain, JSON.parse(JSON.stringify(pokemonList)), evolutionPaths);
+    };
+  } else {
+   evolutionPaths.push(JSON.parse(JSON.stringify(pokemonList)));
+  }
+}
