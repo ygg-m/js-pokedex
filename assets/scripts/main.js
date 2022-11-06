@@ -5,8 +5,9 @@ const modal = document.getElementById("modal");
 
 // api variables
 const maxCardLoad = 151;
-const limit = 20;
-let offset = 275;
+
+const limit = 3;
+let offset = 130;
 
 // button, load more cards
 BtnLoadMore.addEventListener("click", () => {
@@ -161,6 +162,8 @@ async function drawModalWithPokemon(pokemon) {
   } = pokemon;
   const pokeNumber = lpad(id, 3, 0);
   //-----------------------------------------
+  console.log(unevolved);
+
   // clean modal HTML
   resetModal();
 
@@ -251,7 +254,101 @@ async function drawModalWithPokemon(pokemon) {
         </div>
 
         <div class="evolutions-container">
-          <p class="title">Evolutions</p>          
+          <p class="title">Evolutions</p>
+
+              ${
+                // If pokémon doesn't have any evolution
+                // return only unevolved info
+                evolutionList.length === 0
+                  ? `
+                  ${name} doesn't evolve.
+                  <div class="evolution-path">
+                        <div class="evolution ${mainType}">
+                          <div class="img-container">
+                            <img
+                              src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png"
+                              alt="Bulbasaur"
+                            />
+                          </div>
+                          <p class="name">${"unevolved.name"}</p>
+                          <div class="types">
+                            ${types
+                              .map((type) => `<p class=${type}>${type}</p>`)
+                              .join("")}
+                          </div>
+                        </div>
+                      </div>`
+                  : // if pokémon have evolution
+                    // return a map of it's Evolution List
+                    `${evolutionList
+                      .map((evolution) => {
+                        console.log(evolution);
+                        return `
+                      <!-- unevolved --------------------------------- -->
+                      <div class="evolution-path">
+                        <div class="evolution grass">
+                          <div class="img-container">
+                            <img
+                              src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png"
+                              alt="Bulbasaur"
+                            />
+                          </div>
+                          <p class="name">${"unevolvedName"}</p>
+                          <div class="types">
+                            <p class="type grass">Grass</p>
+                            <p class="type poison">Poison</p>
+                          </div>
+                        </div>
+        
+                        ${
+                          evolution?.evolution_details === undefined
+                            ? ""
+                            : evolveTrigger(evolution?.evolution_details)
+                        }
+      
+                        <!-- second evolution --------------------------------- -->
+                        <div class="evolution grass">
+                          <div class="img-container">
+                            <img
+                              src=${"???"}
+                              alt="Ivysaur"
+                            />
+                          </div>
+                          <p class="name">${evolution.species.name}</p>
+                          <div class="types">
+                            <p class="type grass">Grass</p>
+                            <p class="type poison">Poison</p>
+                          </div>
+                        </div>
+        
+                        <!-- 3rd evolution  --------------------------------- -->
+                        <div class="path">
+                          <div class="img-container">
+                            <img src="./assets/img/rare-candy.png" alt="Rare Candy" />
+                          </div>
+                          <p class="path-name">Level <span>7</span></p>
+                          <object data="./assets/img/arrow.svg" type=""></object>
+                        </div>
+        
+                        <div class="evolution grass">
+                          <div class="img-container">
+                            <img
+                              src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png"
+                              alt="Venusaur"
+                            />
+                          </div>
+                          <p class="name">Venusaur</p>
+                          <div class="types">
+                            <p class="type grass">Grass</p>
+                            <p class="type poison">Poison</p>
+                          </div>
+                        </div>
+                      </div>
+                  `;
+                      })
+                      .join("")}`
+              }
+
         </div>
       </div>`;
 }
