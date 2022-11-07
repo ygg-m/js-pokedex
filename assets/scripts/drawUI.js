@@ -99,3 +99,24 @@ const drawModal = {
     },
   },
 };
+
+const drawCard = (pokemon) => {
+  const { name, imgURL, types, id } = pokemon;
+  const pokeNumber = "#" + lpad(id, 3, 0);
+
+  return `
+    <div class="info">
+      <p class="number">${pokeNumber}</p>
+      <p class="name">${name}</p>
+      <div class="types">
+        ${types.map((type) => `<p class=${type}>${type}</p>`).join("")}
+      </div>
+    </div>
+    <div class="image">
+      <img
+        src=${imgURL}
+        alt=${name}
+      />
+    </div>
+  `;
+};

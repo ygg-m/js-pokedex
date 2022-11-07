@@ -38,8 +38,7 @@ loadPokeCards(offset, limit);
 
 // draw poke cards at main page
 function drawPokeCard(pokemon) {
-  const { name, imgURL, types, id, mainType } = pokemon;
-  const pokeNumber = "#" + lpad(id, 3, 0);
+  const { name, imgURL, types, mainType } = pokemon;
 
   // create ui
   const pokeCard = document.createElement("article");
@@ -49,20 +48,7 @@ function drawPokeCard(pokemon) {
 
   // draw the card
   pokemonList.append(pokeCard);
-  pokeCard.innerHTML = `
-      <div class="info">
-        <p class="number">${pokeNumber}</p>
-        <p class="name">${name}</p>
-        <div class="types">
-          ${types.map((type) => `<p class=${type}>${type}</p>`).join("")}
-        </div>
-      </div>
-      <div class="image">
-        <img
-          src=${imgURL}
-          alt=${name}
-        />
-      </div>`;
+  pokeCard.innerHTML = drawCard(pokemon);
 
   // add event listener
   pokeCard.addEventListener("click", () => {
