@@ -4,9 +4,9 @@ const BtnLoadMore = document.getElementById("btn-load-more");
 const modal = document.getElementById("modal");
 
 // api variables
-const maxCardLoad = 151;
-const limit = 10;
-let offset = 130;
+const maxCardLoad = 1510;
+const limit = 100;
+let offset = 0;
 
 // button, load more cards
 BtnLoadMore.addEventListener("click", () => {
