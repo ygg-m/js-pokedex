@@ -18,7 +18,11 @@
   text-transform: capitalize;
   z-index: 1;
   position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
   width: 100%;
+  max-width: 480px;
   padding: 1rem;
   display: flex;
   justify-content: space-between;
@@ -243,7 +247,7 @@
   color: #9B51E0;
 }
 #modal .content .evolutions-container {
-  width: 100%;
+  width: 85vw;
   padding: 1rem 0 2rem;
   display: grid;
   justify-items: center;
@@ -255,23 +259,39 @@
 }
 #modal .content .evolutions-container .evolution-path {
   width: 100%;
-  min-height: 210px;
+  min-height: 230px;
   overflow-x: auto;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 1rem;
 }
+@media (max-width: 570px) {
+  #modal .content .evolutions-container .evolution-path {
+    flex-direction: column;
+  }
+  #modal .content .evolutions-container .evolution-path .path {
+    rotate: 90deg;
+  }
+}
 #modal .content .evolutions-container .evolution-path .evolution {
+  z-index: 0;
+  min-height: 210px;
+  text-transform: capitalize;
   min-width: 110px;
   padding: 0.5rem;
   border-radius: 0.5rem;
   text-align: center;
 }
+#modal .content .evolutions-container .evolution-path .evolution .number {
+  font-size: 0.8rem;
+  color: #999;
+}
 #modal .content .evolutions-container .evolution-path .evolution .img-container {
   position: relative;
 }
 #modal .content .evolutions-container .evolution-path .evolution .img-container::before {
+  z-index: -1;
   content: "";
   position: absolute;
   top: 0;
@@ -287,17 +307,127 @@
   background-size: 100% 100%;
   opacity: 0.1;
 }
-#modal .content .evolutions-container .evolution-path .evolution .types {
-  font-size: 0.85rem;
-}
-#modal .content .evolutions-container .evolution-path .evolution .types .type.grass {
-  color: #56A92C;
-}
-#modal .content .evolutions-container .evolution-path .evolution .types .type.poison {
-  color: #a040a0;
-}
 #modal .content .evolutions-container .evolution-path .evolution.grass {
-  outline: 1px solid #56A92C;
+  outline: solid 1px #56A92C;
+}
+#modal .content .evolutions-container .evolution-path .evolution.fire {
+  outline: solid 1px #d14b22;
+}
+#modal .content .evolutions-container .evolution-path .evolution.water {
+  outline: solid 1px #668ff0;
+}
+#modal .content .evolutions-container .evolution-path .evolution.normal {
+  outline: solid 1px #a8a878;
+}
+#modal .content .evolutions-container .evolution-path .evolution.bug {
+  outline: solid 1px #9FAE1D;
+}
+#modal .content .evolutions-container .evolution-path .evolution.fairy {
+  outline: solid 1px #DF82DF;
+}
+#modal .content .evolutions-container .evolution-path .evolution.steel {
+  outline: solid 1px #818198;
+}
+#modal .content .evolutions-container .evolution-path .evolution.dark {
+  outline: solid 1px #705848;
+}
+#modal .content .evolutions-container .evolution-path .evolution.dragon {
+  outline: solid 1px #7038f8;
+}
+#modal .content .evolutions-container .evolution-path .evolution.ghost {
+  outline: solid 1px #705898;
+}
+#modal .content .evolutions-container .evolution-path .evolution.rock {
+  outline: solid 1px #A68E27;
+}
+#modal .content .evolutions-container .evolution-path .evolution.psychic {
+  outline: solid 1px #f85888;
+}
+#modal .content .evolutions-container .evolution-path .evolution.flying {
+  outline: solid 1px #a890f0;
+}
+#modal .content .evolutions-container .evolution-path .evolution.ground {
+  outline: solid 1px #BD9937;
+}
+#modal .content .evolutions-container .evolution-path .evolution.poison {
+  outline: solid 1px #a040a0;
+}
+#modal .content .evolutions-container .evolution-path .evolution.fighting {
+  outline: solid 1px #c03028;
+}
+#modal .content .evolutions-container .evolution-path .evolution.ice {
+  outline: solid 1px #98d8d8;
+}
+#modal .content .evolutions-container .evolution-path .evolution.electric {
+  outline: solid 1px #D8AD00;
+}
+#modal .content .evolutions-container .evolution-path .evolution .types {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  font-size: 0.85rem;
+  width: 100%;
+  gap: 0.2rem;
+}
+#modal .content .evolutions-container .evolution-path .evolution .types p {
+  padding: 0 0.5rem;
+  border-radius: 3px;
+  color: #fff;
+}
+#modal .content .evolutions-container .evolution-path .evolution .types .grass {
+  background-color: #56A92C;
+}
+#modal .content .evolutions-container .evolution-path .evolution .types .fire {
+  background-color: #d14b22;
+}
+#modal .content .evolutions-container .evolution-path .evolution .types .water {
+  background-color: #668ff0;
+}
+#modal .content .evolutions-container .evolution-path .evolution .types .normal {
+  background-color: #a8a878;
+}
+#modal .content .evolutions-container .evolution-path .evolution .types .bug {
+  background-color: #9FAE1D;
+}
+#modal .content .evolutions-container .evolution-path .evolution .types .fairy {
+  background-color: #DF82DF;
+}
+#modal .content .evolutions-container .evolution-path .evolution .types .steel {
+  background-color: #818198;
+}
+#modal .content .evolutions-container .evolution-path .evolution .types .dark {
+  background-color: #705848;
+}
+#modal .content .evolutions-container .evolution-path .evolution .types .dragon {
+  background-color: #7038f8;
+}
+#modal .content .evolutions-container .evolution-path .evolution .types .ghost {
+  background-color: #705898;
+}
+#modal .content .evolutions-container .evolution-path .evolution .types .rock {
+  background-color: #A68E27;
+}
+#modal .content .evolutions-container .evolution-path .evolution .types .psychic {
+  background-color: #f85888;
+}
+#modal .content .evolutions-container .evolution-path .evolution .types .flying {
+  background-color: #a890f0;
+}
+#modal .content .evolutions-container .evolution-path .evolution .types .ground {
+  background-color: #BD9937;
+}
+#modal .content .evolutions-container .evolution-path .evolution .types .poison {
+  background-color: #a040a0;
+}
+#modal .content .evolutions-container .evolution-path .evolution .types .fighting {
+  background-color: #c03028;
+}
+#modal .content .evolutions-container .evolution-path .evolution .types .ice {
+  background-color: #98d8d8;
+}
+#modal .content .evolutions-container .evolution-path .evolution .types .electric {
+  background-color: #D8AD00;
 }
 #modal .content .evolutions-container .evolution-path .path {
   display: flex;
