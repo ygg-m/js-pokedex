@@ -77,15 +77,17 @@ const drawModal = {
 
     card(poke) {
       const { id, name, types } = poke;
+      const pokeNumber = "#" + lpad(id, 3, 0);
       return `
         <div class="evolution ${types[0].type.name}">
+        <p class="number">${pokeNumber}</p>
+        <p class="name">${name}</p>
           <div class="img-container">
             <img
               src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png"
               alt=${name}
             />
           </div>
-            <p class="name">${name}</p>
           <div class="types">
           ${types
             .map((e) => `<p class=${e.type.name}>${e.type.name}</p>`)
