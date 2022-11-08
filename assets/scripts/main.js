@@ -4,8 +4,8 @@ const BtnLoadMore = document.getElementById("btn-load-more");
 const modal = document.getElementById("modal");
 
 // api variables
-const maxCardLoad = 1510;
-const limit = 100;
+const maxCardLoad = 386;
+const limit = 50;
 let offset = 0;
 
 // button, load more cards
@@ -13,10 +13,12 @@ BtnLoadMore.addEventListener("click", () => {
   offset += limit;
   const nextPageCardCount = offset + limit;
 
+  if (loading) BtnLoadMore.innerText = "Loading";
+  else BtnLoadMore.innerText = "Load More";
+
   if (nextPageCardCount >= maxCardLoad) {
     const newLimit = maxCardLoad - offset;
     loadPokeCards(offset, newLimit);
-
     BtnLoadMore.parentElement.removeChild(BtnLoadMore);
   } else {
     loadPokeCards(offset, limit);
@@ -38,7 +40,7 @@ loadPokeCards(offset, limit);
 
 // draw poke cards at main page
 function drawPokeCard(pokemon) {
-  const { name, imgURL, types, mainType } = pokemon;
+  const { mainType } = pokemon;
 
   // create ui
   const pokeCard = document.createElement("article");

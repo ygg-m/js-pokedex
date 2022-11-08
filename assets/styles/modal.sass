@@ -232,13 +232,19 @@
 
             .title
                 color: #999
-
+        
             .evolution-path
                 width: 100%
                 min-height: 230px
                 overflow-x: auto
                 @include m.flex-center
                 gap: 1rem
+
+                @media (max-width: 570px)
+                    flex-direction: column
+
+                    .path
+                        rotate: 90deg
 
                 .evolution
                     z-index: 0
@@ -249,6 +255,8 @@
                     border-radius: .5rem
                     text-align: center
 
+
+                
                     .number
                         font-size: .8rem
                         color: #999
@@ -473,4 +481,3 @@
             object-fit: contain
             height: 85%
             filter: drop-shadow(0 0 1rem rgb(255, 255, 255, .5))
-

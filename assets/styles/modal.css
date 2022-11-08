@@ -266,6 +266,14 @@
   justify-content: center;
   gap: 1rem;
 }
+@media (max-width: 570px) {
+  #modal .content .evolutions-container .evolution-path {
+    flex-direction: column;
+  }
+  #modal .content .evolutions-container .evolution-path .path {
+    rotate: 90deg;
+  }
+}
 #modal .content .evolutions-container .evolution-path .evolution {
   z-index: 0;
   min-height: 210px;
