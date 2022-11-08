@@ -153,6 +153,31 @@ async function drawModalWithPokemon(pokemon) {
                       .join("")}`
               }
 
+              ${
+                // if pokemon have more than 1 2nd evolution
+                secondEvolution.length === 0 || secondEvolution.length === 1
+                  ? ""
+                  : `${firstEvolution
+                      .map((evolution) => {
+                        return `
+                  <div class="evolution-path">
+                    ${drawModal.evolution.card(unevolved)}
+                    ${drawModal.evolution.path()}
+                    ${drawModal.evolution.card(evolution)}
+
+                    <!-- 3rd evolution  --------------------------------- -->
+                    ${
+                      secondEvolution.length !== 0
+                        ? `${drawModal.evolution.path()}
+                          ${drawModal.evolution.card(secondEvolution[1])}`
+                        : ""
+                    }
+                  </div>
+              `;
+                      })
+                      .join("")}`
+              }
+
         </div>
       </div>`;
 }

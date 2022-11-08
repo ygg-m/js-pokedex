@@ -70,10 +70,6 @@ const drawModal = {
     path(trigger) {
       return `
       <div class="path">
-        <div class="img-container">
-          <img src="./assets/img/rare-candy.png" alt="Rare Candy" />
-        </div>
-        <p class="path-name">Level <span>7</span></p>
         <object data="./assets/img/arrow.svg" type=""></object>
       </div>
       `;
