@@ -21,7 +21,11 @@
         text-transform: capitalize
         z-index: 1
         position: absolute
+        left: 0
+        right: 0
+        margin: auto
         width: 100%
+        max-width: 480px
         padding: 1rem
         display: flex
         justify-content: space-between
@@ -231,19 +235,24 @@
 
             .evolution-path
                 width: 100%
-                min-height: 210px
+                min-height: 230px
                 overflow-x: auto
                 @include m.flex-center
                 gap: 1rem
 
                 .evolution
                     z-index: 0
-                    min-height: 188px
+                    min-height: 210px
                     text-transform: capitalize
                     min-width: 110px
                     padding: .5rem
                     border-radius: .5rem
                     text-align: center
+
+                    .number
+                        font-size: .8rem
+                        color: #999
+
                     .img-container
                         position: relative
                         
