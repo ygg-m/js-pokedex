@@ -19,14 +19,12 @@ nav .title h1 {
   color: #EC5454;
 }
 nav .options {
-  z-index: 100;
-  position: absolute;
   list-style: none;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  display: none;
+  display: flex;
   right: 0;
   top: 0;
   background-color: #fff;
@@ -36,7 +34,9 @@ nav .options {
 nav .options li {
   transition: 200ms;
   color: #3B4CCA;
-  padding: 1rem 2rem;
+  padding: 0.5rem 1rem;
+  border: solid 1px #ddd;
+  border-radius: 0.5rem;
 }
 nav .options li:hover {
   cursor: pointer;
@@ -46,33 +46,4 @@ nav .options li:hover {
 nav .options a {
   color: inherit;
   text-decoration: none;
-}
-@media screen and (min-width: 470px) {
-  nav .options {
-    z-index: 0;
-    position: relative;
-    display: flex;
-    gap: 0.5rem;
-  }
-  nav .options li {
-    padding: 0.5rem 1rem;
-    border: solid 1px #ddd;
-    border-radius: 0.5rem;
-  }
-}
-nav button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 0.3rem;
-  background-color: transparent;
-  border: none;
-  padding: 0.5rem;
-  color: #777;
-  cursor: pointer;
-}
-@media screen and (min-width: 470px) {
-  nav button {
-    display: none;
-  }
 }/*# sourceMappingURL=navbar.css.map */

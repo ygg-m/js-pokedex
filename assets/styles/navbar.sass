@@ -20,12 +20,10 @@ nav
             color: v.$red
  
     .options
-        z-index: 100
-        position: absolute
         list-style: none
         @include m.flex-center
         gap: 1rem
-        display: none
+        display: flex
         right: 0
         top: 0
         background-color: #fff
@@ -35,7 +33,9 @@ nav
         li
             transition: 200ms
             color: v.$blue
-            padding: 1rem 2rem
+            padding: .5rem 1rem
+            border: solid 1px #ddd
+            border-radius: .5rem
 
             &:hover
                 cursor: pointer
@@ -47,26 +47,26 @@ nav
             text-decoration: none
 
 
-        @media screen and (min-width: 470px)
-            z-index: 0
-            position: relative
-            display: flex
-            gap: .5rem
+        // @media screen and (min-width: 470px)
+        //     z-index: 0
+        //     position: relative
+        //     display: flex
+        //     gap: .5rem
 
-            li
-                padding: .5rem 1rem
-                border: solid 1px #ddd
-                border-radius: .5rem
+        //     li
+        //         padding: .5rem 1rem
+        //         border: solid 1px #ddd
+        //         border-radius: .5rem
         
 
-    button 
-        @include m.flex-center
-        border-radius: 0.3rem
-        background-color: transparent
-        border: none
-        padding: 0.5rem
-        color: #777
-        cursor: pointer
+    // button 
+    //     @include m.flex-center
+    //     border-radius: 0.3rem
+    //     background-color: transparent
+    //     border: none
+    //     padding: 0.5rem
+    //     color: #777
+    //     cursor: pointer
 
-        @media screen and (min-width: 470px)
-            display: none
+    //     @media screen and (min-width: 470px)
+    //         display: none

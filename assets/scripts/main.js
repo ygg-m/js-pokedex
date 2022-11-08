@@ -2,6 +2,7 @@
 const pokemonList = document.getElementById("pokemon-list");
 const BtnLoadMore = document.getElementById("btn-load-more");
 const modal = document.getElementById("modal");
+const menuButton = document.getElementById("menu-button");
 
 // api variables
 const maxCardLoad = 386;
