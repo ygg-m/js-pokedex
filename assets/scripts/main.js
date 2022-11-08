@@ -13,9 +13,6 @@ BtnLoadMore.addEventListener("click", () => {
   offset += limit;
   const nextPageCardCount = offset + limit;
 
-  if (loading) BtnLoadMore.innerText = "Loading";
-  else BtnLoadMore.innerText = "Load More";
-
   if (nextPageCardCount >= maxCardLoad) {
     const newLimit = maxCardLoad - offset;
     loadPokeCards(offset, newLimit);
