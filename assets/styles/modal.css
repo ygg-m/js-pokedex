@@ -357,77 +357,60 @@
 #modal .content .evolutions-container .evolution-path .evolution .types p {
   padding: 0 0.5rem;
   border-radius: 3px;
+  color: #fff;
 }
 #modal .content .evolutions-container .evolution-path .evolution .types .grass {
-  color: #E9F4E4;
   background-color: #56A92C;
 }
 #modal .content .evolutions-container .evolution-path .evolution .types .fire {
-  color: #E9D7CA;
   background-color: #d14b22;
 }
 #modal .content .evolutions-container .evolution-path .evolution .types .water {
-  color: #CFDAF2;
   background-color: #668ff0;
 }
 #modal .content .evolutions-container .evolution-path .evolution .types .normal {
-  color: #E9E9D5;
   background-color: #a8a878;
 }
 #modal .content .evolutions-container .evolution-path .evolution .types .bug {
-  color: #E8ECC7;
   background-color: #9FAE1D;
 }
 #modal .content .evolutions-container .evolution-path .evolution .types .fairy {
-  color: #F8E0F8;
   background-color: #DF82DF;
 }
 #modal .content .evolutions-container .evolution-path .evolution .types .steel {
-  color: #DFDFF2;
   background-color: #818198;
 }
 #modal .content .evolutions-container .evolution-path .evolution .types .dark {
-  color: #D0C7C0;
   background-color: #705848;
 }
 #modal .content .evolutions-container .evolution-path .evolution .types .dragon {
-  color: #EAE2FD;
   background-color: #7038f8;
 }
 #modal .content .evolutions-container .evolution-path .evolution .types .ghost {
-  color: #D1C8DE;
   background-color: #705898;
 }
 #modal .content .evolutions-container .evolution-path .evolution .types .rock {
-  color: #DAD1A9;
   background-color: #A68E27;
 }
 #modal .content .evolutions-container .evolution-path .evolution .types .psychic {
-  color: #F8E0F8;
   background-color: #f85888;
 }
 #modal .content .evolutions-container .evolution-path .evolution .types .flying {
-  color: #D4CEE5;
   background-color: #a890f0;
 }
 #modal .content .evolutions-container .evolution-path .evolution .types .ground {
-  color: #E2DCCA;
   background-color: #BD9937;
 }
 #modal .content .evolutions-container .evolution-path .evolution .types .poison {
-  color: #DCC3DC;
   background-color: #a040a0;
 }
 #modal .content .evolutions-container .evolution-path .evolution .types .fighting {
-  color: #F2D0CE;
   background-color: #c03028;
 }
 #modal .content .evolutions-container .evolution-path .evolution .types .ice {
-  color: #E9FFFF;
   background-color: #98d8d8;
 }
 #modal .content .evolutions-container .evolution-path .evolution .types .electric {
-  color: #EEEAD9;
   background-color: #D8AD00;
 }
 #modal .content .evolutions-container .evolution-path .path {
