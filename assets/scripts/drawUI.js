@@ -92,7 +92,7 @@ const drawModal = {
             <p class="name">${name}</p>
           <div class="types">
           ${types
-            .map((e) => `<p class='type ' + ${e.type.name}>${e.type.name}</p>`)
+            .map((e) => `<p class=${e.type.name}>${e.type.name}</p>`)
             .join("")} 
           </div>
         </div>`;
