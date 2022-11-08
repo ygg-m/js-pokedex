@@ -126,7 +126,7 @@ async function drawModalWithPokemon(pokemon) {
                 // return only unevolved info
                 firstEvolution.length === 0
                   ? `
-                    ${name} doesn't evolve.
+                    <p class="mute"><span class="capitalize">${name}</span> doesn't evolve.</p>
                     <div class="evolution-path">
                       ${drawModal.evolution.card(unevolved)}
                     </div>`
