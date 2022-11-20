@@ -1,7 +1,7 @@
 <div align="center">
   <img src="./assets/img/sprite-pokeball.png" />
   <h1>Pokédex</h1>
-  <h3>Have more control over your finances.</h3>
+  <h3>Full Pokédex using JavaScript.</h3>
 </div>
 
 ## ✨ About
